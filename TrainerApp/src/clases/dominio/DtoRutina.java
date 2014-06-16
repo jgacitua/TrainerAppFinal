@@ -1,5 +1,5 @@
 package clases.dominio;
 
-public class Rutina {
+public class DtoRutina {
 
 }
