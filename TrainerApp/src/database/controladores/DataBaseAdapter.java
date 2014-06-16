@@ -1,10 +1,10 @@
 package database.controladores;
 
+import clases.dominio.DtoRutina;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import database.controladores.DataBaseHelper;
-import dto.DtoParametro;
 
 public class DataBaseAdapter {
 	public SQLiteDatabase open() throws SQLException {
