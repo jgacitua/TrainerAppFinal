@@ -12,7 +12,7 @@ public DtoRutina(){
     this.ID_RUT="";
     this.TIPO_TRAB="";
 }
-
+// estamos
 public void setIdRutina(String Id) {
     this.ID_RUT = Id;
 }
