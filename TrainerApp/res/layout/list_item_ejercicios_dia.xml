@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/titulo_ejercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:lines="1"
+            android:minLines="1"
+            android:text="@string/TxtTrainerApp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:width="250dp" />
+
+        <TextView
+            android:id="@+id/tiempoList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/TxtHorasEjemplo2"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:width="100dp" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ibtnEliminar"
+        android:layout_width="42dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="2dp"
+        android:background="@null"
+        android:contentDescription="@string/TxtDescripcion"
+        android:src="@drawable/elimina_cupon" />
+
+</LinearLayout>

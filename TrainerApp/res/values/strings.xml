@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TrainerApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <!--   *********Menu**********          -->
+     <string name="TxtCrearEntrenamiento">Crear entrenamiento</string>
+     <string name="TxtVerRutina">Ver Rutina</string>
+     <string name="TxtTrainerApp">TrainerApp</string>
+     
+        <!--   *********Crear Entrenamiento**********          -->
+     <string name="TxtTipoEntrenamiento">Tipo de Entrenamiento</string>
+     <string name="TxtTrabajoMuscular">Trabajo Muscular</string>
+     <string name="TxtNivel">Nivel</string>
+     <string name="TxtCardioVascular">CardioVascular</string>
+     <string name="TxtAumentoMuscular">Aumento Muscular</string>
+     <string name="TxtBasico">Basico</string>
+     <string name="TxtMedio">Medio</string>
+     <string name="TxtAvanzado">Avanzado</string>
+     <string name="TxtSexo">Sexo</string>
+     <string name="TxtFemenino">Femenino</string>
+     <string name="TxtMasculino">Masculino</string>
+     <string name="TxtGuardar">Guardar</string>
+     
+          <!--   *********Entrenamiento semanal**********          -->
+     <string name="TxtEntrenamientoSemanal">Entrenamiento Semanal</string>
+      <string name="TxtLunes">Lunes</string>
+      <string name="TxtMartes">Martes</string>
+      <string name="TxtMiercoles">Miercoles</string>
+      <string name="TxtJueves">Jueves</string>
+      <string name="TxtViernes">Viernes</string>
+      <string name="TxtSabado">Sabado</string>
+      <string name="TxtDomingo">Domingo</string>
+      <string name="TxtTiempo">Tiempo</string>
+      <string name="TxtTiempoTotal">Tiempo Total: </string>
+      <string name="TxtHorasEjemplo">20:30:00 </string>
+      <string name="TxtHorasEjemplo2">01:10:00 </string>
+      <string name="TxtEliminar">Eliminar</string>
+      
+     
+       <!--   *********Dia Entrenamiento**********          -->
+     <string name="TxtDiaSemana">Nombre Dia</string>
+     <string name="TxtEditar">Editar</string>
+     
+     <!--   *********Zonas Musculares**********          -->
+     <string name="TxtZonasMusculares">Zonas Musculares</string>
+     <string name="TxtDescripcion">imagen del cuerpo humano</string>
+     <string name="TxtEspectorales">Pectorales</string>
+     <string name="TxtEspalda">Espalda</string>
+     <string name="TxtTricep">Triceps</string>
+     <string name="TxtBiceps">Biceps</string>
+     <string name="TxtAbdomen">Abdomen</string>
+     <string name="TxtHombros">Hombros</string>
+     <string name="TxtPiernas">Piernas</string>
+      <string name="TxtEspacio"></string>
+      <!--   *********Lista Ejercicios zona muscular**********          -->
+     <string name="TxtZonaMuscular">Zona Muscular</string>
+     <!--   *********Descripcion**********          -->
+     <string name="TxtSeleccionar">Seleccionar</string>
+     
+   
+     <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="title_activity_main">Side Menu Tutorial</string>
+
+</resources>

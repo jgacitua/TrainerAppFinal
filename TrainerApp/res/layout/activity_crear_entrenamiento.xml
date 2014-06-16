@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/fondo_portrait7"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/titulo_ejercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="@string/TxtTipoEntrenamiento"
+        android:textAppearance="@style/EstiloNegrasText"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/TxtTrabajoMuscular"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/rGmuscular"
+        android:layout_width="301dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:background="#B3ffffff"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/rVascular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/TxtCardioVascular" />
+
+        <RadioButton
+            android:id="@+id/rAumento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TxtAumentoMuscular" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/TxtNivel"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/rGNivel"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:background="#B3ffffff"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rBasico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/TxtBasico" />
+
+        <RadioButton
+            android:id="@+id/rMedio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TxtMedio" />
+
+        <RadioButton
+            android:id="@+id/rAvanzado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TxtAvanzado" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/TxtSexo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="301dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:background="#B3ffffff"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/TxtMasculino" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/TxtFemenino" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="283dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_style_azul"
+        android:onClick="OnClickGuardar"
+        android:text="@string/TxtGuardar"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
