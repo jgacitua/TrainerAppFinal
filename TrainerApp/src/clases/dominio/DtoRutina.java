@@ -22,7 +22,7 @@ public void setTipoTrab(String tipo_trab) {
 public void setAll(String Id, String tipo_trab, String sexo, String nivel) {
     this.ID_RUT = Id;
     this.TIPO_TRAB = tipo_trab;
-    this.SEXO = sexo;
+    this.SEXO = sexo; 
     this.NIVEL = nivel;
 }
 public String getIdRutina(){
