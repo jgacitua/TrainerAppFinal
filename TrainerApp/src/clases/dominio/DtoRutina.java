@@ -1,33 +1,41 @@
 package clases.dominio;
 
 
-public class DtoRutina { public String ID_ANOT ;
-public String ANOTACION;
+public class DtoRutina { 
+private String ID_RUT ;
+private String TIPO_TRAB;
+private String SEXO;
+private String NIVEL;
+
 
 public DtoRutina(){
-    this.ID_ANOT="";
-    this.ANOTACION="";
-}
-public DtoRutina(String id_Anot, String anot){
-    this.ID_ANOT=id_Anot;
-    this.ANOTACION=anot;
+    this.ID_RUT="";
+    this.TIPO_TRAB="";
 }
 
-public void setIdAnot(String Id) {
-    this.ID_ANOT = Id;
+public void setIdRutina(String Id) {
+    this.ID_RUT = Id;
 }
-public void setAnot(String Anot) {
-    this.ANOTACION = Anot;
+public void setTipoTrab(String tipo_trab) {
+    this.TIPO_TRAB = tipo_trab;
 }
-public void setAll(String Id, String anotacion) {
-    this.ID_ANOT = Id;
-    this.ANOTACION = anotacion;
+public void setAll(String Id, String tipo_trab, String sexo, String nivel) {
+    this.ID_RUT = Id;
+    this.TIPO_TRAB = tipo_trab;
+    this.SEXO = sexo;
+    this.NIVEL = nivel;
 }
-public String getIdAnot(){
-    return this.ID_ANOT;
+public String getIdRutina(){
+    return this.ID_RUT;
 }
-public String getAnot(){
-    return this.ANOTACION;
+public String getTipoTrabajo(){
+    return this.TIPO_TRAB;
+}
+public String getSexo(){
+    return this.SEXO;
+}
+public String getNivel(){
+    return this.NIVEL;
 }
 
 
