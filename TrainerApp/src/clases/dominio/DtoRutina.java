@@ -17,7 +17,7 @@ public void setIdRutina(String Id) {
     this.ID_RUT = Id;
 }
 public void setTipoTrab(String tipo_trab) {
-    this.TIPO_TRAB = tipo_trab;
+    this.TIPO_TRAB = tipo_trab; //asd
 } 
 public void setAll(String Id, String tipo_trab, String sexo, String nivel) {
     this.ID_RUT = Id;
