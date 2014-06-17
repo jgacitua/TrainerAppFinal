@@ -26,7 +26,7 @@ public class DataBaseAdapter {
 	public boolean insertarRutina(DtoRutina Rutina ) {
 		   Log.w("INSERTAR RUTINA", "insert into "+ DataBaseHelper.TABLA_RUT+ " ( " + DataBaseHelper.ID_RUT+", "+DataBaseHelper.TIPO_TRAB 
 	        		+"," + DataBaseHelper.NIVEL + ","+DataBaseHelper.SEXO+") "+" values ('" +Rutina.ID_RUT +"','" +Rutina.TIPO_TRAB+"','"
-				   +Rutina.NIVEL+"','"+Rutina.SEXO+"')");
+				   +Rutina.NIVEL +"','"+Rutina.SEXO+"')");
 	       try{
 	        db.execSQL("insert into "+ DataBaseHelper.TABLA_RUT+ " ( " + DataBaseHelper.ID_RUT+", "+DataBaseHelper.TIPO_TRAB 
 	        		+"," + DataBaseHelper.NIVEL + ","+DataBaseHelper.SEXO+") "+" values ('" +Rutina.ID_RUT +"','" +Rutina.TIPO_TRAB+"','"
