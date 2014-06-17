@@ -10,7 +10,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	/** Propiedades a partir de aquí. */
 	public static final String DATABASE_NAME = "DBTrainerApp";
 	public static final int DATABASE_VERSION = 0;
-	//-------------------------------------TABLA PARAMETRO-----------------------------------------------
+	//-------------------------------------TABLA RUTINA-----------------------------------------------
 	public static final String TABLA_RUT = "rutina";
 	public static final String ID_RUT = "id_rut";
 	public static final String TIPO_TRAB= "tipo_trabajo";
