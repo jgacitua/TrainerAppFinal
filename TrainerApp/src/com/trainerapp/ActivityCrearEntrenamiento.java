@@ -22,10 +22,12 @@ public class ActivityCrearEntrenamiento extends Activity{
     }
 	 public void OnClickGuardar(View view)
 	    {
+		 //Extraccion de los valores marcados por el usuario en las opciones de la pantalla
 		    String varTrbjo = getStringButton(rgTipoTrabajo);
 		    String varNvl = getStringButton(rgNivel);
 		    String varSex = getStringButton(rgSexo);
-		     
+		    
+		   //Insertando los datos selecionados por el usuario en la base de datos
 		    DtoRutina dtoRutina = new DtoRutina();
 		    dbRutina.open();
 		    dtoRutina.setAll("1",varTrbjo, varSex, varNvl);

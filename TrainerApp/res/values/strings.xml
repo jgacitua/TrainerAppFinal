@@ -25,6 +25,7 @@
      
           <!--   *********Entrenamiento semanal**********          -->
      <string name="TxtEntrenamientoSemanal">Entrenamiento Semanal</string>
+     <string name="TxtSemana">Semana</string>
       <string name="TxtLunes">Lunes</string>
       <string name="TxtMartes">Martes</string>
       <string name="TxtMiercoles">Miercoles</string>

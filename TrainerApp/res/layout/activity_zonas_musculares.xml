@@ -61,7 +61,7 @@
             android:layout_marginTop="30dp" >
 
             <Button
-                android:id="@+id/Button01"
+                android:id="@+id/btnLunes"
                 style="@style/EstiloBlancasTextmin"
                 android:layout_width="92dp"
                 android:layout_height="30dp"
@@ -103,7 +103,7 @@
                 android:text="@string/TxtBiceps" />
 
             <TextView
-                android:id="@+id/TextView02"
+                android:id="@+id/txtHorasMartes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/TxtEspacio"
