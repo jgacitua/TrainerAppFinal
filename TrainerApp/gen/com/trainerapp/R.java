@@ -1136,8 +1136,8 @@ containing a value of this type.
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
+        public static final int btnVerRutina=0x7f05004b;
         public static final int button1=0x7f050052;
-        public static final int button2=0x7f05004b;
         public static final int buttonDialogAceptar=0x7f050067;
         public static final int buttonDialogCancelar=0x7f050068;
         public static final int checkBox1=0x7f05004c;

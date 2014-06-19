@@ -35,7 +35,7 @@
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnVerRutina"
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"

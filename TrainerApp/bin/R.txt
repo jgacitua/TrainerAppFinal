@@ -291,8 +291,8 @@ int id action_settings 0x7f05006f
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id beginning 0x7f050011
+int id btnVerRutina 0x7f05004b
 int id button1 0x7f050052
-int id button2 0x7f05004b
 int id buttonDialogAceptar 0x7f050067
 int id buttonDialogCancelar 0x7f050068
 int id checkBox1 0x7f05004c
