@@ -11,6 +11,8 @@ private String NIVEL;
 public DtoRutina(){
     this.ID_RUT="";
     this.TIPO_TRAB="";
+    this.SEXO = "";
+    this.NIVEL = "";
 }
 // estamos
 public void setIdRutina(String Id) {

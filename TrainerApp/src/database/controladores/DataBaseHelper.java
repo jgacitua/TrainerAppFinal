@@ -9,7 +9,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	
 	/** Propiedades a partir de aquí. */
 	public static final String DATABASE_NAME = "DBTrainerApp";
-	public static final int DATABASE_VERSION = 0;
+	public static final int DATABASE_VERSION = 2;
 	//-------------------------------------TABLA RUTINA-----------------------------------------------
 	public static final String TABLA_RUT = "rutina";
 	public static final String ID_RUT = "id_rut";
@@ -46,7 +46,8 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	public void Delete(SQLiteDatabase db){
 	//	db.execSQL("DROP DATABASE IF EXISTS " + DATABASE_NAME);
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_RUT);
-	    db.execSQL("DROP TABLE IF EXITS "+ TABLA_DIAENTR);
+	    db.execSQL("DROP TABLE IF EXISTS "+ TABLA_DIAENTR);
+	    Log.w("Delete DB","Se borro DB");
 	    onCreate2(db);
 	}
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -54,7 +55,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	                        + " to " + newVersion + ", which will destroy all old data");
 	        // Se borra la tabla.
 	        db.execSQL("DROP TABLE IF EXISTS " + TABLA_RUT);
-	        db.execSQL("DRRP TABLE IF EXISTS " + TABLA_DIAENTR);
+	        db.execSQL("DROP TABLE IF EXISTS " + TABLA_DIAENTR);
 	        onCreate(db);      
 	        
 	}
