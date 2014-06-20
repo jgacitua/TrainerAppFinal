@@ -13,20 +13,21 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 public class ActivityMenu extends ActionBarActivity {
-	private DataBaseAdapter dbRutina;
+	private DataBaseAdapter dbAdapter;
 	private Button btnVerRutina;
 	private ProgresDialog mTaskDir;
 	
-    @Override 
+    @SuppressWarnings("deprecation")
+	@Override 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mTaskDir = (ProgresDialog) getLastNonConfigurationInstance();
-        dbRutina = new DataBaseAdapter(this);
+        dbAdapter = new DataBaseAdapter(this);
         setContentView(R.layout.activity_menu);
         btnVerRutina = (Button) findViewById(R.id.btnVerRutina);
+        cargarEjercicos();
         actualizarPantalla();
-          mTaskDir = new ProgresDialog(ActivityMenu.this);
-		  mTaskDir.execute();
+       
     }
     protected void onResume()
     {
@@ -56,9 +57,9 @@ public class ActivityMenu extends ActionBarActivity {
     	    	final DialogCustom dialog = DialogMaker.createAlertDialog(this, "Atención","Si desea crear un nuevo entrenamiento, sera borrado el anterior(rutinas, ejercicos, etc..)");
     	    	dialog.setPositiveButton("Borrar", new OnClickListener(){
     				public void onClick(View v) {
-    					dbRutina.open();
-    					dbRutina.borrarDB();
-    					dbRutina.close();
+    					dbAdapter.open();
+    					dbAdapter.borrarDB();
+    					dbAdapter.close();
     					dialog.dismiss();
     					Intent i = new Intent(ActivityMenu.this,ActivityCrearEntrenamiento.class);
     	    	    	startActivity(i);
@@ -86,9 +87,17 @@ public class ActivityMenu extends ActionBarActivity {
     	 else {btnVerRutina.setEnabled(false);}
     }
     public boolean existeRutina(){
-         dbRutina.open();
-         if(dbRutina.existeRutina()){dbRutina.close(); return true;}
-         else {dbRutina.close(); return false; }
+         dbAdapter.open();
+         if(dbAdapter.existeRutina()){dbAdapter.close(); return true;}
+         else {dbAdapter.close(); return false; }
+    }
+    public void cargarEjercicos() {
+    	dbAdapter.open();
+    	 if(!dbAdapter.existeEjercicios){
+             mTaskDir = new ProgresDialog(ActivityMenu.this);
+   		  mTaskDir.execute();
+           }
+    	 dbAdapter.close();
     }
 
 }
