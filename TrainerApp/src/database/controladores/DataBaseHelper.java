@@ -10,17 +10,17 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	/** Propiedades a partir de aquí. */
 	public static final String DATABASE_NAME = "DBTrainerApp";
 	public static final int DATABASE_VERSION = 2;
-	//-------------------------------------TABLA RUTINA-----------------------------------------------
+	//-------------------------------------TABLA RUTINA----------------------------------------------
 	public static final String TABLA_RUT = "rutina";
 	public static final String ID_RUT = "id_rut";
 	public static final String TIPO_TRAB= "tipo_trabajo";
 	public static final String NIVEL = "nivel";
 	public static final String SEXO = "sexo";
-	//************************************************************************************************
+	//***********************************************************************************************
 	public static final String TAB_CREATE_PAR = "create table " + TABLA_RUT
 	                   + " (" + ID_RUT + " text PRIMARY KEY , "+ TIPO_TRAB + " text,"+ NIVEL + " text,"+ SEXO +" text);";
 
-	//---------------------------TABLA DIA DE ENTRENAMIENTO----------------------------------------------
+	//---------------------------TABLA DIA DE ENTRENAMIENTO------------------------------------------
 	public static final String TABLA_DIAENTR = "dia_entrenamiento";
 	public static final String ID_DIAENTR = "id_dia";
 	public static final String NOMBRE = "dia";
@@ -29,6 +29,17 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	public static final String TAB_CREATE_DIAENTR = "create table " + TABLA_DIAENTR
             + " (" + ID_DIAENTR + " text PRIMARY KEY , "+ NOMBRE + " text,"+ TIEMPO_TOTAL + " text);";
 	
+	//---------------------------TABLA EJERCICIO-----------------------------------------------------
+	public static final String TABLA_EJERCICIO = "ejercicio";
+	public static final String ID_EJER = "id";
+	public static final String NOMBRE_EJER = "nombre";
+	public static final String DESCRIPCION = "descripcion";
+	public static final String FOTO = "foto";
+	public static final String ZONA_MUSCULAR_ID = "zona_muscular_id";
+	//***********************************************************************************************
+	public static final String TAB_CREATE_EJERCICIO = "create table " + TABLA_EJERCICIO
+            + " (" + ID_EJER + " text PRIMARY KEY , "+ NOMBRE_EJER + " text,"+ DESCRIPCION + " text, "+
+			FOTO +" image, "+ ZONA_MUSCULAR_ID +" text);";
 	
 	public DataBaseHelper(Context contexto) {
 	   	super(contexto, DATABASE_NAME, null, DATABASE_VERSION);
