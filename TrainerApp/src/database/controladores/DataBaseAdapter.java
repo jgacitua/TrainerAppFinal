@@ -2,7 +2,11 @@
 
 package database.controladores;
 
+import clases.dominio.DtoDiaDeEntrenamiento;
+import clases.dominio.DtoEjercicioMuscular;
+import clases.dominio.DtoEjercicioUsuario;
 import clases.dominio.DtoRutina;
+import clases.dominio.DtoZonaMuscular;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -34,6 +38,44 @@ public class DataBaseAdapter {
 	        return true;
 	       }catch(Exception e){return false;}
 	}
+	public boolean insertarDiaEntrenamiento(DtoDiaDeEntrenamiento DiaEntrenamiento){
+		try{
+			db.execSQL("insert into "+ DataBaseHelper.TABLA_DIAENTR+ " ( " + DataBaseHelper.ID_DIAENTR+", "+DataBaseHelper.NOMBRE_DIA
+	        		+"," + DataBaseHelper.TIEMPO_TOTAL+") "+" values ('" +DiaEntrenamiento.getId() +"','" +DiaEntrenamiento.getDia()+"','"
+				   +DiaEntrenamiento.getTiempoTotal()+"')");
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+	}
+	public boolean insertarEjercicio(DtoEjercicioMuscular EjercicioMuscular){
+		try{
+			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJERCICIO+" ( " + DataBaseHelper.ID_EJER+", "+DataBaseHelper.NOMBRE_EJER
+	        		+"," + DataBaseHelper.DESCRIPCION+", "+DataBaseHelper.FOTO+", "+DataBaseHelper.ZONA_MUSCULAR_ID+") "+" values ('" + EjercicioMuscular.getId() +"','" +EjercicioMuscular.getNombre()+"','"
+				   +EjercicioMuscular.getDescripcion()+"','"+EjercicioMuscular.getFoto()+"','"+EjercicioMuscular.getZonaMuscularId()+"')");
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+	}
+	public boolean insertarEjercicioUsuario(DtoEjercicioUsuario EjercicioUsuario){
+		try{
+			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJER_USUARIO+" ( " + DataBaseHelper.ID_EJER_USU+", "+DataBaseHelper.EJERCICIO_ID+") "+" values ('" + EjercicioUsuario.getId() +"','" 
+		+EjercicioUsuario.getEjercicioId()+"')");
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+	}
+	public boolean insertarZonaMuscular(DtoZonaMuscular ZonaMuscular){
+		try{
+			db.execSQL("insert into "+ DataBaseHelper.TABLA_ZONA_MUS+" ( " + DataBaseHelper.ID_ZONA+", "+DataBaseHelper.NOMBRE_ZONA+") "+" values ('" + ZonaMuscular.getId() +"','" 
+		+ZonaMuscular.getNombre()+"')");
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+	}
 	public DtoRutina obtenerRutina(String id) {
 	       try{
 	    	   DtoRutina dtoRutina = new DtoRutina();
@@ -62,6 +104,24 @@ public class DataBaseAdapter {
 		boolean var= false;
 		try{
 	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_RUT,null);
+	    	 
+	    	   if(cur.moveToFirst())
+			   {
+	    		   var=true;
+	    		   Log.w("Existe DB","Si existe");
+//				do{ 
+//				}while(cur.moveToNext());
+			  }else{
+				  Log.w("Existe DB","No existe");
+			  }
+			cur.close();
+	        return  var;
+	       }catch(Exception e){return var;}
+	}
+	public boolean existeEjercicio(){
+		boolean var= false;
+		try{
+	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJERCICIO,null);
 	    	 
 	    	   if(cur.moveToFirst())
 			   {
