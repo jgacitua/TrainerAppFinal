@@ -7,7 +7,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/titulo_ejercicio"
+        android:id="@+id/diaSemana"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -56,7 +56,7 @@
             android:textAppearance="@style/EstiloNegrasText" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/txtHoraTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

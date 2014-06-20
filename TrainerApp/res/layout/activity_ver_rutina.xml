@@ -265,7 +265,7 @@
             android:textAppearance="@style/EstiloNegrasText" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/txtHoraTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

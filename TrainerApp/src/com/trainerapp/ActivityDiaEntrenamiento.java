@@ -11,14 +11,22 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
 public class ActivityDiaEntrenamiento extends Activity{
 	ArrayList<MenuItem> ejerciciosDiaArray= new ArrayList<MenuItem>();
 	private ListView listDias;
+	private TextView diaSemana;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dia_entrenamiento);
         listDias = (ListView) findViewById(R.id.listEjeDia);
+        diaSemana = (TextView) findViewById(R.id.diaSemana);
+        Intent iin= getIntent();
+        Bundle b = iin.getExtras();
+       // Cargar Nombre Dia de la semana
+         diaSemana.setText(b.getString("DIA"));
+        //--------------------------
         agregarListDias();
         listDias.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
