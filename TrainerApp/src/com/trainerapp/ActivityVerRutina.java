@@ -15,7 +15,7 @@ public class ActivityVerRutina extends Activity{
 	private TextView hrDomingo; 
 	private TextView hrTotal;
 	protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState); 
         
         setContentView(R.layout.activity_ver_rutina);
         hrLunes = (TextView) findViewById(R.id.txtHorasLunes);
