@@ -93,7 +93,7 @@ public class ActivityMenu extends ActionBarActivity {
     }
     public void cargarEjercicos() {
     	dbAdapter.open();
-    	 if(!dbAdapter.existeEjercicios){
+    	 if(!dbAdapter.existeEjercicio()){
              mTaskDir = new ProgresDialog(ActivityMenu.this);
    		  mTaskDir.execute();
            }
