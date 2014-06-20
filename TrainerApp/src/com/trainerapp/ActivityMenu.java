@@ -2,6 +2,7 @@ package com.trainerapp;
 
 import interfaces.dialogos.DialogCustom;
 import interfaces.dialogos.DialogMaker;
+import interfaces.dialogos.ProgresDialog;
 import database.controladores.DataBaseAdapter;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
@@ -14,18 +15,18 @@ import android.widget.Button;
 public class ActivityMenu extends ActionBarActivity {
 	private DataBaseAdapter dbRutina;
 	private Button btnVerRutina;
+	private ProgresDialog mTaskDir;
+	
     @Override 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mTaskDir = (ProgresDialog) getLastNonConfigurationInstance();
         dbRutina = new DataBaseAdapter(this);
         setContentView(R.layout.activity_menu);
         btnVerRutina = (Button) findViewById(R.id.btnVerRutina);
         actualizarPantalla();
-//        if (savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction()
-//                    .add(R.id.container, new PlaceholderFragment())
-//                    .commit();
-//        }
+          mTaskDir = new ProgresDialog(ActivityMenu.this);
+		  mTaskDir.execute();
     }
     protected void onResume()
     {

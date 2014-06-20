@@ -18,6 +18,7 @@ public class ActivityVerRutina extends Activity{
         super.onCreate(savedInstanceState); 
         
         setContentView(R.layout.activity_ver_rutina);
+      
         hrLunes = (TextView) findViewById(R.id.txtHorasLunes);
         hrMartes = (TextView) findViewById(R.id.txtHorasMartes);
         hrMiercoles = (TextView) findViewById(R.id.txtHoraMiercoles);
@@ -32,6 +33,8 @@ public class ActivityVerRutina extends Activity{
         		hrMiercoles.getText().toString(),hrJueves.getText().toString(),
         		hrViernes.getText().toString(),hrSabado.getText().toString(),hrDomingo.getText().toString()};
        hrTotal.setText(sumarTotalTiempo(diasHoras)); 
+       
+       
         
 
     }
