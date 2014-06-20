@@ -12,7 +12,7 @@ public class ActivityVerRutina extends Activity{
 	private TextView hrJueves;
 	private TextView hrViernes;
 	private TextView hrSabado;
-	private TextView hrDomingo;
+	private TextView hrDomingo; 
 	private TextView hrTotal;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
