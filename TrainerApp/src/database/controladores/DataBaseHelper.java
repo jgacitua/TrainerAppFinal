@@ -39,7 +39,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	//***********************************************************************************************
 	public static final String TAB_CREATE_EJERCICIO = "create table " + TABLA_EJERCICIO
             + " (" + ID_EJER + " text PRIMARY KEY , "+ NOMBRE_EJER + " text,"+ DESCRIPCION + " text, "+
-			FOTO +" image, "+ ZONA_MUSCULAR_ID +" text);";
+			FOTO +" varbinary, "+ ZONA_MUSCULAR_ID +" text);";
 	
 	public DataBaseHelper(Context contexto) {
 	   	super(contexto, DATABASE_NAME, null, DATABASE_VERSION);
