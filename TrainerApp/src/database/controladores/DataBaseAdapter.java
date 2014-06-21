@@ -108,11 +108,11 @@ public class DataBaseAdapter {
 	    	   if(cur.moveToFirst())
 			   {
 	    		   var=true;
-	    		   Log.w("Existe DB","Si existe");
+	    		   Log.w("Existe DB","Si existe Rutina");
 //				do{ 
 //				}while(cur.moveToNext());
 			  }else{
-				  Log.w("Existe DB","No existe");
+				  Log.w("Existe DB","No existe Rutina");
 			  }
 			cur.close();
 	        return  var;
@@ -126,11 +126,11 @@ public class DataBaseAdapter {
 	    	   if(cur.moveToFirst())
 			   {
 	    		   var=true;
-	    		   Log.w("Existe DB","Si existe");
+	    		   Log.w("Existe DB","Si existe ejercicios");
 //				do{ 
 //				}while(cur.moveToNext());
 			  }else{
-				  Log.w("Existe DB","No existe");
+				  Log.w("Existe DB","No existe ejercicios");
 			  }
 			cur.close();
 	        return  var;

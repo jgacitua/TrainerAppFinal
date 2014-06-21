@@ -1,11 +1,10 @@
 package clases.dominio;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+
 
 public class DtoEjercicioMuscular extends DtoEjercicio{
 	private String DESCRIPCION;
-	private Bitmap FOTO;
+	private String FOTO;
 	private String ZONA_MUSCULAR_ID;
 	
 	public DtoEjercicioMuscular(){
@@ -18,7 +17,7 @@ public class DtoEjercicioMuscular extends DtoEjercicio{
 	public void setAll(String id, String descripcion, String url, String zona_muscular_id){
 		this.ID=id;
 		this.DESCRIPCION=descripcion;
-		this.FOTO=BitmapFactory.decodeFile(url);
+		this.FOTO= url;
 		this.ZONA_MUSCULAR_ID=zona_muscular_id;
 	}
 	
@@ -30,7 +29,7 @@ public class DtoEjercicioMuscular extends DtoEjercicio{
 		return this.DESCRIPCION;
 	}
 	
-	public Bitmap getFoto(){
+	public String getFoto(){
 		return this.FOTO;
 	}
 	

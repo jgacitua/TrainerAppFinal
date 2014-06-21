@@ -9,7 +9,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	
 	/** Propiedades a partir de aquí. */
 	public static final String DATABASE_NAME = "DBTrainerApp";
-	public static final int DATABASE_VERSION = 2;
+	public static final int DATABASE_VERSION = 5;
 	//-------------------------------------TABLA RUTINA----------------------------------------------
 	public static final String TABLA_RUT = "rutina";
 	public static final String ID_RUT = "id_rut";
@@ -39,7 +39,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	//***********************************************************************************************
 	public static final String TAB_CREATE_EJERCICIO = "create table " + TABLA_EJERCICIO
             + " (" + ID_EJER + " text PRIMARY KEY , "+ NOMBRE_EJER + " text,"+ DESCRIPCION + " text, "+
-			FOTO +" varbinary, "+ ZONA_MUSCULAR_ID +" text);";
+			FOTO +" text, "+ ZONA_MUSCULAR_ID +" text);";
 	//---------------------------TABLA ZONA MUSCULAR-------------------------------------------------
 	public static final String TABLA_ZONA_MUS = "zona_muscular";
 	public static final String ID_ZONA = "id";
@@ -47,7 +47,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	//***********************************************************************************************
 	public static final String TAB_CREATE_ZONA_MUS = "create table " + TABLA_ZONA_MUS
             + " (" + ID_ZONA + " text PRIMARY KEY , "+ NOMBRE_ZONA + " text);";
-	//---------------------------TABLA EJERCICIO USUARIO---------------------------------------------
+	//---------------------------TABLA EJERCICIO USUARIO--------------------*-------------------------
 	public static final String TABLA_EJER_USUARIO = "ejercicio_usuario";
 	public static final String ID_EJER_USU = "id";
 	public static final String EJERCICIO_ID = "ejercicio_id";
@@ -71,7 +71,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_DIAENTR);
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_EJERCICIO);
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_ZONA_MUS);
-	    db.execSQL("DROP TABLE IF EXISTS " + TAB_CREATE_EJER_USUARIO);
+	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_EJER_USUARIO);
 	    Log.w("Delete DB","Se borro DB");
 	    onCreate(db);
 	}
@@ -83,7 +83,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	        db.execSQL("DROP TABLE IF EXISTS " + TABLA_DIAENTR);
 	        db.execSQL("DROP TABLE IF EXISTS " + TABLA_EJERCICIO);
 		    db.execSQL("DROP TABLE IF EXISTS " + TABLA_ZONA_MUS);
-		    db.execSQL("DROP TABLE IF EXISTS " + TAB_CREATE_EJER_USUARIO);
+		    db.execSQL("DROP TABLE IF EXISTS " + TABLA_EJER_USUARIO);
 	        onCreate(db);      
 	        
 	}
