@@ -118,4 +118,22 @@ public class DataBaseAdapter {
 	        return  var;
 	       }catch(Exception e){return var;}
 	}
+	public boolean existeEjercicio(){
+		boolean var= false;
+		try{
+	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJERCICIO,null);
+	    	 
+	    	   if(cur.moveToFirst())
+			   {
+	    		   var=true;
+	    		   Log.w("Existe DB","Si existe");
+//				do{ 
+//				}while(cur.moveToNext());
+			  }else{
+				  Log.w("Existe DB","No existe");
+			  }
+			cur.close();
+	        return  var;
+	       }catch(Exception e){return var;}
+	}
 }
