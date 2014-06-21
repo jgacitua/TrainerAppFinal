@@ -36,10 +36,11 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	public static final String DESCRIPCION = "descripcion";
 	public static final String FOTO = "foto";
 	public static final String ZONA_MUSCULAR_ID = "zona_muscular_id";
+	public static final String TIEMPO = "tiempo";
 	//***********************************************************************************************
 	public static final String TAB_CREATE_EJERCICIO = "create table " + TABLA_EJERCICIO
             + " (" + ID_EJER + " text PRIMARY KEY , "+ NOMBRE_EJER + " text,"+ DESCRIPCION + " text, "+
-			FOTO +" text, "+ ZONA_MUSCULAR_ID +" text);";
+			FOTO +" text, "+ TIEMPO +" text, "+ ZONA_MUSCULAR_ID +" text);";
 	//---------------------------TABLA ZONA MUSCULAR-------------------------------------------------
 	public static final String TABLA_ZONA_MUS = "zona_muscular";
 	public static final String ID_ZONA = "id";

@@ -32,23 +32,23 @@ public class ProgresDialog extends AsyncTask<Void, Void, Void>{
     protected Void doInBackground(Void... params) {
     	DtoEjercicioMuscular dtoEjercioM = new DtoEjercicioMuscular();
     	      db.open();
-    	      dtoEjercioM.setAll("3", "Ejercicios Bkn","as", "2");
+    	      dtoEjercioM.setAll("3", "Ejercicios Bkn","as", "2","01:10:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("4", "Ejercicios Bkn", "safa", "2");
+    	      dtoEjercioM.setAll("4", "Ejercicios Bkn", "safa", "2","01:30:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("5", "Ejercicios Bkn", "safa", "2");
+    	      dtoEjercioM.setAll("5", "Ejercicios Bkn", "safa", "2","00:10:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("6", "Ejercicios Bkn","as", "2");
+    	      dtoEjercioM.setAll("6", "Ejercicios Bkn","as", "2","00:15:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("7", "Ejercicios Bkn", "safa", "2");
+    	      dtoEjercioM.setAll("7", "Ejercicios Bkn", "safa", "2","00:10:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("8", "Ejercicios Bkn", "safa", "2");
+    	      dtoEjercioM.setAll("8", "Ejercicios Bkn", "safa", "2","00:08:10");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("9", "Ejercicios Bkn","as", "2");
+    	      dtoEjercioM.setAll("9", "Ejercicios Bkn","as", "2","00:20:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("10", "Ejercicios Bkn", "safa", "2");
+    	      dtoEjercioM.setAll("10", "Ejercicios Bkn", "safa", "2","00:17:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("11", "Ejercicios Bkn", "safa", "2");
+    	      dtoEjercioM.setAll("11", "Ejercicios Bkn", "safa", "2","00:15:10");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
 			  db.close();
 			 

@@ -16,9 +16,7 @@ public class ActivityVerRutina extends Activity{
 	private TextView hrTotal;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); 
-        
         setContentView(R.layout.activity_ver_rutina);
-      
         hrLunes = (TextView) findViewById(R.id.txtHorasLunes);
         hrMartes = (TextView) findViewById(R.id.txtHorasMartes);
         hrMiercoles = (TextView) findViewById(R.id.txtHoraMiercoles);
@@ -33,10 +31,6 @@ public class ActivityVerRutina extends Activity{
         		hrMiercoles.getText().toString(),hrJueves.getText().toString(),
         		hrViernes.getText().toString(),hrSabado.getText().toString(),hrDomingo.getText().toString()};
        hrTotal.setText(sumarTotalTiempo(diasHoras)); 
-       
-       
-        
-
     }
 	public void actualizarPantalla(){}
 	
@@ -45,7 +39,6 @@ public class ActivityVerRutina extends Activity{
 		i.putExtra("DIA", dia);
      	startActivity(i);
 	}
-	
 	// Ir a los dias de entrenamiento
 	 public void OnClickLunes(View view){
 		 
@@ -73,9 +66,7 @@ public class ActivityVerRutina extends Activity{
 		 String hora1 = "00:00:00";
         for(int i=0; i<hora2.length; i++)
 		 hora1 = sumartiempo(hora1, hora2[0]);
-         
 		return hora1;
-		 
 	 }
 	 public String sumartiempo(String hora1, String hora2){
 		 String horaTotal=null;

@@ -51,8 +51,8 @@ public class DataBaseAdapter {
 	public boolean insertarEjercicio(DtoEjercicioMuscular EjercicioMuscular){
 		try{
 			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJERCICIO+" ( " + DataBaseHelper.ID_EJER+", "+DataBaseHelper.NOMBRE_EJER
-	        		+"," + DataBaseHelper.DESCRIPCION+", "+DataBaseHelper.FOTO+", "+DataBaseHelper.ZONA_MUSCULAR_ID+") "+" values ('" + EjercicioMuscular.getId() +"','" +EjercicioMuscular.getNombre()+"','"
-				   +EjercicioMuscular.getDescripcion()+"','"+EjercicioMuscular.getFoto()+"','"+EjercicioMuscular.getZonaMuscularId()+"')");
+	        		+"," + DataBaseHelper.DESCRIPCION+", "+DataBaseHelper.TIEMPO+", "+DataBaseHelper.FOTO+", "+DataBaseHelper.ZONA_MUSCULAR_ID+") "+" values ('" + EjercicioMuscular.getId() +"','" +EjercicioMuscular.getNombre()+"','"
+				   +EjercicioMuscular.getDescripcion()+"','"+EjercicioMuscular.getTiempo()+"','"+EjercicioMuscular.getFoto()+"','"+EjercicioMuscular.getZonaMuscularId()+"')");
 			return true;
 		}catch(Exception e){
 			return false;
@@ -104,7 +104,6 @@ public class DataBaseAdapter {
 		boolean var= false;
 		try{
 	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_RUT,null);
-	    	 
 	    	   if(cur.moveToFirst())
 			   {
 	    		   var=true;
@@ -122,13 +121,10 @@ public class DataBaseAdapter {
 		boolean var= false;
 		try{
 	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJERCICIO,null);
-	    	 
 	    	   if(cur.moveToFirst())
 			   {
 	    		   var=true;
 	    		   Log.w("Existe DB","Si existe ejercicios");
-//				do{ 
-//				}while(cur.moveToNext());
 			  }else{
 				  Log.w("Existe DB","No existe ejercicios");
 			  }

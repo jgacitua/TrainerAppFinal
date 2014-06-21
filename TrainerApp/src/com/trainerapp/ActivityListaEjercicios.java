@@ -63,7 +63,7 @@ public class ActivityListaEjercicios extends Activity{
         listDias.setAdapter(adaptador);
 	}
 	public void actualizarTiempo(){}
-
+	
 	 public void OnClickGuardar(View view)
 	    {
 	    	    
