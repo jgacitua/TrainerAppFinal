@@ -19,14 +19,14 @@ public class ActivityTiempo extends Activity{
 		 int resto = 0;
 // Sumamos las dos tipo de horas
 		 int segundo = Integer.parseInt(h2[2]) + Integer.parseInt(h1[2]);
-		 if (segundo >= 60){
-		    resto = 1;
-		    segundo = 0;
+		 if(segundo >= 60){
+			    segundo = segundo - 60;
+			    resto = resto + 1;
 		 }
 		 int minuto = (Integer.parseInt(h2[1]) + Integer.parseInt(h1[1])) + resto;
 		 resto = 0;
 		 if (minuto >= 60){
-		    minuto = 0;
+		    minuto = minuto - 60;
 		    resto = 1;
 		 }
 		 int hora = (Integer.parseInt(h2[0]) + Integer.parseInt(h1[0])) + resto;

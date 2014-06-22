@@ -26,8 +26,8 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
         super.onCreate(savedInstanceState);
         db =new DataBaseAdapter(this);
         setContentView(R.layout.activity_dia_entrenamiento);
-        listDias = (ListView) findViewById(R.id.listEjeDia);
         diaSemana = (TextView) findViewById(R.id.diaSemana);
+        listDias = (ListView) findViewById(R.id.listEjeDia);
         hrTotal = (TextView) findViewById(R.id.txtHoraTotalDia);
         Intent iin= getIntent();
         b = iin.getExtras();
@@ -49,6 +49,7 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 	    hrTotal.setText(sumarTotalTiempo(obtenerTiemposEje()));
 	}
 	public void agregarListDias(){
+		ejerciciosDiaArray= new ArrayList<MenuItem>();
 		db.open();
 		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario(dia);
 		for(int i=0; i<dtoEjer.length;i++){

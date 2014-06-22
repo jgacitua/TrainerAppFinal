@@ -25,7 +25,9 @@ public class ActivityDescripcion extends ActivityTiempo{
         
         id = b.getString("ID");
         dia = b.getString("DIA");
-        
+        db.open();
+         chkBox.setChecked(db.existeEjercicioUsuario(id,dia));
+        db.close();
         chkBox.setOnClickListener(new OnClickListener() {
       	  public void onClick(View v) {
                       db.open();
@@ -36,11 +38,7 @@ public class ActivityDescripcion extends ActivityTiempo{
       				db.insertarEjercicioUsuario(dtoEjerUs);
       				
       			}
-      			Toast.makeText(ActivityDescripcion.this,
-      		 	   "Seleccionado "+ id, Toast.LENGTH_LONG).show();
-      		}else {
-      			Toast.makeText(ActivityDescripcion.this,
-           		 	   "Deseleccionado borrado"+ db.borrarEjercicio(id), Toast.LENGTH_LONG).show();
+      		}else { db.borrarEjercicio(id);
       			   
       		}
            db.close();
