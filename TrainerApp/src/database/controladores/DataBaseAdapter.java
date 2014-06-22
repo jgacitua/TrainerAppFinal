@@ -61,8 +61,8 @@ public class DataBaseAdapter {
 	}
 	public boolean insertarEjercicioUsuario(DtoEjercicioUsuario EjercicioUsuario){
 		try{
-			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJER_USUARIO+" ("+DataBaseHelper.EJERCICIO_ID+") "+" values ('" 
-		+EjercicioUsuario.getEjercicioId()+"')");
+			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJER_USUARIO+" ("+DataBaseHelper.EJERCICIO_ID+", "+DataBaseHelper.DIA+") "+" values ('" 
+		+EjercicioUsuario.getEjercicioId()+"','"+EjercicioUsuario.getDia()+"')");
 			Log.w("Insertando Ejercicio Usuario", "Correctamente");
 			return true;
 		}catch(Exception e){
@@ -107,9 +107,9 @@ public class DataBaseAdapter {
 	        return  dtoZona;
 	       }catch(Exception e){return null;}
 	}
-	public DtoEjercicioUsuario[] obtenerEjerciciosUsuario() {
+	public DtoEjercicioUsuario[] obtenerEjerciciosUsuario(String dia) {
 	       try{
-	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJER_USUARIO,null);
+	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJER_USUARIO + " WHERE DIA = '"+dia+"'",null);
 	    	   DtoEjercicioUsuario[] dtoEjeUsu = new DtoEjercicioUsuario[cur.getCount()];
 	    	   if(cur.moveToFirst())
 			   {
@@ -119,7 +119,7 @@ public class DataBaseAdapter {
 			    	   if(cur1.moveToFirst())
 					   {
 			    		    dtoEjeUsu[i] = new DtoEjercicioUsuario();
-			    		   	dtoEjeUsu[i].setAll(cur.getString(0), cur1.getString(1), cur1.getString(4));
+			    		   	dtoEjeUsu[i].setAll(cur.getString(0), cur1.getString(1),cur1.getString(0), cur1.getString(4),cur.getString(2));
 					   }
 				   i= i +1;
 				   cur1.close();
@@ -201,10 +201,10 @@ public class DataBaseAdapter {
 	        return  var;
 	       }catch(Exception e){return var;}
 	}
-	public boolean existeEjercicioUsuario(String ejercicio_id){
+	public boolean existeEjercicioUsuario(String ejercicio_id, String dia){
 		boolean var= false;
 		try{
-	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJER_USUARIO + " WHERE ejercicio_id = '"+ejercicio_id+"'",null);
+	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJER_USUARIO + " WHERE ejercicio_id  = '"+ejercicio_id+"' AND dia= '"+dia+"'",null);
 	    	   if(cur.moveToFirst())
 			   {
 	    		   var=true;

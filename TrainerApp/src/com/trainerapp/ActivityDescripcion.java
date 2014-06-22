@@ -13,6 +13,7 @@ public class ActivityDescripcion extends ActivityTiempo{
 	private DataBaseAdapter db;
 	private String id;
 	private CheckBox chkBox;
+	private String dia;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descripcion);
@@ -21,15 +22,17 @@ public class ActivityDescripcion extends ActivityTiempo{
         Intent iin= getIntent();
         Bundle b = iin.getExtras();
        // Cargar id del ejercicio seleccionado
+        
         id = b.getString("ID");
+        dia = b.getString("DIA");
         
         chkBox.setOnClickListener(new OnClickListener() {
       	  public void onClick(View v) {
                       db.open();
       		if (((CheckBox) v).isChecked()) {
-      			if(!db.existeEjercicioUsuario(id)){
+      			if(!db.existeEjercicioUsuario(id,dia)){
       				DtoEjercicioUsuario dtoEjerUs = new DtoEjercicioUsuario();
-      				dtoEjerUs.setAll(id);
+      				dtoEjerUs.setAll(id, dia);
       				db.insertarEjercicioUsuario(dtoEjerUs);
       				
       			}

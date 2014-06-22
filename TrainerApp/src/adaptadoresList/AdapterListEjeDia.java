@@ -41,7 +41,7 @@ public class AdapterListEjeDia extends BaseAdapter{
 	         arg1 = lInflater.inflate(R.layout.list_item_ejercicios_dia, null);
 	         contenedor = new ContenedorView();
 	         contenedor.btnEliminar = (ImageButton) arg1.findViewById(R.id.ibtnEliminar);
-	         contenedor.nombreVersion = (TextView) arg1.findViewById(R.id.titulo_ejercicio);
+	         contenedor.nombreVersion = (TextView) arg1.findViewById(R.id.titulo_zona);
 	         contenedor.tiempo = (TextView) arg1.findViewById(R.id.tiempoList);
 	         
 	         //Eliminar Ejercicios

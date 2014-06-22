@@ -9,7 +9,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	
 	/** Propiedades a partir de aquí. */
 	public static final String DATABASE_NAME = "DBTrainerApp";
-	public static final int DATABASE_VERSION = 14;
+	public static final int DATABASE_VERSION = 17;
 	//-------------------------------------TABLA RUTINA----------------------------------------------
 	public static final String TABLA_RUT = "rutina";
 	public static final String ID_RUT = "id_rut";
@@ -52,9 +52,10 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	public static final String TABLA_EJER_USUARIO = "ejercicio_usuario";
 	public static final String ID_EJER_USU = "id";
 	public static final String EJERCICIO_ID = "ejercicio_id";
+	public static final String DIA = "dia";
 	//***********************************************************************************************
 	public static final String TAB_CREATE_EJER_USUARIO = "create table " + TABLA_EJER_USUARIO
-            + " (" + ID_EJER_USU + " INTEGER PRIMARY KEY AUTOINCREMENT , "+ EJERCICIO_ID + " text);";
+            + " (" + ID_EJER_USU + " INTEGER PRIMARY KEY AUTOINCREMENT , "+ EJERCICIO_ID + " text,"+ DIA + " text);";
 	public DataBaseHelper(Context contexto) {
 	   	super(contexto, DATABASE_NAME, null, DATABASE_VERSION);
 	}

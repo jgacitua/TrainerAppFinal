@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
 public class ActivityListaEjercicios extends Activity{
 	ArrayList<DtoEjercicio> ejerciciosDiaArray= new ArrayList<DtoEjercicio>();
@@ -20,20 +21,25 @@ public class ActivityListaEjercicios extends Activity{
 	private AdapterListDias adaptador;
 	private String dia;
 	private DataBaseAdapter db;
+	private TextView titilo_zona;
+	private String zona;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db =new DataBaseAdapter(this);
         setContentView(R.layout.activity_list_ejercicios);
         listDias = (ListView) findViewById(R.id.listEje);
+        titilo_zona = (TextView) findViewById(R.id.titulo_zona);
         Intent iin= getIntent();
         Bundle b = iin.getExtras();
         dia = b.getString("DIA");
-        agregarListDias(b.getString("ZONA"));
+        zona= b.getString("ZONA");
+        titilo_zona.setText(zona);
+        agregarListDias(zona);
         listDias.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                 int position, long id) {
             	String id_ejer = adaptador.getItemIdEjer(position);
-            	llamarActivityDiaEntrenamiento(id_ejer, dia);
+            	llamarActivityDiaEntrenamiento(id_ejer, dia,zona);
                 }
 
             });
@@ -49,10 +55,11 @@ public class ActivityListaEjercicios extends Activity{
         listDias.setAdapter(adaptador);
         db.close();
 	}
-	public void llamarActivityDiaEntrenamiento(String id, String dia){
+	public void llamarActivityDiaEntrenamiento(String id, String dia,String zona){
 		Intent i = new Intent(ActivityListaEjercicios.this,ActivityDescripcion.class); 
 		i.putExtra("DIA", dia);
 		i.putExtra("ID", id);
+		i.putExtra("ZONA", zona);
      	startActivity(i);
 	}
 	 public void OnClickGuardar(View view)

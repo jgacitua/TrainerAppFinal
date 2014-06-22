@@ -42,7 +42,7 @@ public class AdapterListDias extends BaseAdapter{
 	         arg1 = lInflater.inflate(R.layout.list_item_menu, null);
 	 
 	         contenedor = new ContenedorView();
-	         contenedor.nombreVersion = (TextView) arg1.findViewById(R.id.titulo_ejercicio);
+	         contenedor.nombreVersion = (TextView) arg1.findViewById(R.id.titulo_zona);
 	         contenedor.tiempo = (TextView) arg1.findViewById(R.id.tiempoList);
 	 
 	         arg1.setTag(contenedor);

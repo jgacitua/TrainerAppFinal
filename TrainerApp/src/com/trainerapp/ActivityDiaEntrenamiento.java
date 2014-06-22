@@ -21,6 +21,7 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 	private DataBaseAdapter db;
 	private TextView hrTotal;
 	private Bundle b;
+	private String dia;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db =new DataBaseAdapter(this);
@@ -31,7 +32,8 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
         Intent iin= getIntent();
         b = iin.getExtras();
        // Cargar Nombre Dia de la semana
-         diaSemana.setText(b.getString("DIA"));
+        dia = b.getString("DIA");
+         diaSemana.setText(dia);
         //--------------------------
         hrTotal.setText(sumarTotalTiempo(obtenerTiemposEje()));
         listDias.setOnItemClickListener(new OnItemClickListener() {
@@ -48,7 +50,7 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 	}
 	public void agregarListDias(){
 		db.open();
-		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario();
+		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario(dia);
 		for(int i=0; i<dtoEjer.length;i++){
 			ejerciciosDiaArray.add( new MenuItem(dtoEjer[i].getNombre(), dtoEjer[i].getTiempo()));
 		}
@@ -58,7 +60,7 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 	}
 	public String[] obtenerTiemposEje(){
 		db.open();
-		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario();
+		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario(dia);
 		String[] tiempoTotal = new String[dtoEjer.length];
 		for(int i=0; i<dtoEjer.length;i++){
 			tiempoTotal[i]=  dtoEjer[i].getTiempo();
