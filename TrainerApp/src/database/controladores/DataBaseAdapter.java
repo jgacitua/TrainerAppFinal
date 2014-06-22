@@ -3,6 +3,7 @@
 package database.controladores;
 
 import clases.dominio.DtoDiaDeEntrenamiento;
+import clases.dominio.DtoEjercicio;
 import clases.dominio.DtoEjercicioMuscular;
 import clases.dominio.DtoEjercicioUsuario;
 import clases.dominio.DtoRutina;
@@ -92,6 +93,18 @@ public class DataBaseAdapter {
 	        return  dtoRutina;
 	       }catch(Exception e){return null;}
 	}
+	public DtoZonaMuscular obtenerZona(String zona) {
+	       try{
+	    	   DtoZonaMuscular dtoZona = new DtoZonaMuscular();    	  
+	    			   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_ZONA_MUS + " WHERE nombre = '"+zona+"'",null);;
+	    	   if(cur.moveToFirst())
+			   {
+	    		  dtoZona.setAll(cur.getString(0), cur.getString(1));
+			  }
+			cur.close();
+	        return  dtoZona;
+	       }catch(Exception e){return null;}
+	}
 	public DtoEjercicioUsuario[] obtenerEjerciciosUsuario() {
 	       try{
 	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJER_USUARIO,null);
@@ -113,6 +126,25 @@ public class DataBaseAdapter {
 			cur.close();
 		
 	        return  dtoEjeUsu;
+	       }catch(Exception e){return null;}
+	}
+	public DtoEjercicio[] obtenerEjercicios(String id_zona) {
+	       try{
+	    	   Cursor cur= db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJERCICIO + " WHERE zona_muscular_id = '"+id_zona+"'",null);
+	    	   DtoEjercicio[] dtoEje = new DtoEjercicio[cur.getCount()];
+	    	   if(cur.moveToFirst())
+			   {
+	    		  int i= 0;
+				do{ 
+			    		    dtoEje[i] = new DtoEjercicio();
+			    		   	dtoEje[i].setAll(cur.getString(0), cur.getString(1), cur.getString(4));
+					   
+				   i= i +1;
+				}while(cur.moveToNext());
+			  }
+			cur.close();
+		
+	        return  dtoEje;
 	       }catch(Exception e){return null;}
 	}
 	public boolean borrarDB() 

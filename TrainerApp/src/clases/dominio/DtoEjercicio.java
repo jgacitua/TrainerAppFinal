@@ -11,6 +11,12 @@ public class DtoEjercicio {
 		this.TIEMPO="";
 	}
 	
+	public DtoEjercicio(String id, String nombre, String tiempo) {
+		this.ID=id;
+		this.NOMBRE=nombre;
+		this.TIEMPO = tiempo;
+	}
+
 	public void setAll(String id, String nombre,String tiempo){
 		this.ID=id;
 		this.NOMBRE=nombre;

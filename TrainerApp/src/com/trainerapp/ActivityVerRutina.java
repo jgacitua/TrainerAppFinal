@@ -31,7 +31,6 @@ public class ActivityVerRutina extends ActivityTiempo{
         		hrViernes.getText().toString(),hrSabado.getText().toString(),hrDomingo.getText().toString()};
        hrTotal.setText(sumarTotalTiempo(diasHoras)); 
     }
-	public void actualizarPantalla(){}
 	
 	public void llamarActivityDiaEntrenamiento(String dia){
 		Intent i = new Intent(ActivityVerRutina.this,ActivityDiaEntrenamiento.class); 

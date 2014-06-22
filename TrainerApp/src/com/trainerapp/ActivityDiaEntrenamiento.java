@@ -20,6 +20,7 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 	private TextView diaSemana;
 	private DataBaseAdapter db;
 	private TextView hrTotal;
+	private Bundle b;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db =new DataBaseAdapter(this);
@@ -28,7 +29,7 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
         diaSemana = (TextView) findViewById(R.id.diaSemana);
         hrTotal = (TextView) findViewById(R.id.txtHoraTotalDia);
         Intent iin= getIntent();
-        Bundle b = iin.getExtras();
+        b = iin.getExtras();
        // Cargar Nombre Dia de la semana
          diaSemana.setText(b.getString("DIA"));
         //--------------------------
@@ -40,6 +41,11 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 
             });
     }
+	public void onResume(){
+	    super.onResume();
+	    agregarListDias();
+	    hrTotal.setText(sumarTotalTiempo(agregarListDias()));
+	}
 	public String[] agregarListDias(){
 		db.open();
 		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario();
@@ -50,12 +56,13 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 		}
         AdapterListEjeDia adaptador = new AdapterListEjeDia(ActivityDiaEntrenamiento.this, ejerciciosDiaArray);
         listDias.setAdapter(adaptador);
+		db.close();
         return tiempoTotal;
 	}
 	 public void OnClickEditar(View view)
 	    {
-	    	    
-		 Intent i = new Intent(ActivityDiaEntrenamiento.this,ActivityZonasMusculares.class);     
+		 Intent i = new Intent(ActivityDiaEntrenamiento.this,ActivityZonasMusculares.class);
+		 i.putExtra("DIA", b.getString("DIA"));
          startActivity(i);
 	    }
 }
