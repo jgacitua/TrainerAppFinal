@@ -21,6 +21,9 @@ public class DtoEjercicioUsuario extends DtoEjercicio {
 		this.ID=id;
 		this.EJERCICIO_ID=ejercicio_id;
 	}
+	public void setAll(String ejercicio_id){
+		this.EJERCICIO_ID=ejercicio_id;
+	}
 	
 	public String getId(){
 		return this.ID;

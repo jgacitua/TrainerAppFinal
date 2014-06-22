@@ -22,6 +22,13 @@ public class DtoEjercicioMuscular extends DtoEjercicio{
 		this.TIEMPO = tiempo;
 		this.NOMBRE = nombre;
 	}
+	public void setAll( String nombre ,String descripcion, String url, String zona_muscular_id,String tiempo){
+		this.DESCRIPCION=descripcion;
+		this.FOTO= url;
+		this.ZONA_MUSCULAR_ID=zona_muscular_id;
+		this.TIEMPO = tiempo;
+		this.NOMBRE = nombre;
+	}
 	
 	public String getId(){
 		return this.ID;

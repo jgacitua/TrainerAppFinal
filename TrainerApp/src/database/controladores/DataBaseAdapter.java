@@ -51,8 +51,8 @@ public class DataBaseAdapter {
 	}
 	public boolean insertarEjercicio(DtoEjercicioMuscular EjercicioMuscular){
 		try{
-			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJERCICIO+" ( " + DataBaseHelper.ID_EJER+", "+DataBaseHelper.NOMBRE_EJER
-	        		+"," + DataBaseHelper.DESCRIPCION+", "+DataBaseHelper.TIEMPO+", "+DataBaseHelper.FOTO+", "+DataBaseHelper.ZONA_MUSCULAR_ID+") "+" values ('" + EjercicioMuscular.getId() +"','" +EjercicioMuscular.getNombre()+"','"
+			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJERCICIO+" ( "+DataBaseHelper.NOMBRE_EJER
+	        		+"," + DataBaseHelper.DESCRIPCION+", "+DataBaseHelper.TIEMPO+", "+DataBaseHelper.FOTO+", "+DataBaseHelper.ZONA_MUSCULAR_ID+") "+" values ('" +EjercicioMuscular.getNombre()+"','"
 				   +EjercicioMuscular.getDescripcion()+"','"+EjercicioMuscular.getTiempo()+"','"+EjercicioMuscular.getFoto()+"','"+EjercicioMuscular.getZonaMuscularId()+"')");
 			return true;
 		}catch(Exception e){
@@ -61,10 +61,12 @@ public class DataBaseAdapter {
 	}
 	public boolean insertarEjercicioUsuario(DtoEjercicioUsuario EjercicioUsuario){
 		try{
-			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJER_USUARIO+" ( " + DataBaseHelper.ID_EJER_USU+", "+DataBaseHelper.EJERCICIO_ID+") "+" values ('" + EjercicioUsuario.getId() +"','" 
+			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJER_USUARIO+" ("+DataBaseHelper.EJERCICIO_ID+") "+" values ('" 
 		+EjercicioUsuario.getEjercicioId()+"')");
+			Log.w("Insertando Ejercicio Usuario", "Correctamente");
 			return true;
 		}catch(Exception e){
+			Log.w("Insertando Ejercicio Usuario", "ERROR");
 			return false;
 		}
 	}
@@ -147,6 +149,18 @@ public class DataBaseAdapter {
 	        return  dtoEje;
 	       }catch(Exception e){return null;}
 	}
+	
+	
+//	public void actualizarEjercicioUsuario(String seleccion) {
+//        db.execSQL("UPDATE "+DataBaseHelper.TABLA_PED+" SET "+DataBaseHelper.SELECCION+" = '"+seleccion+"' " +
+//        		"WHERE "+DataBaseHelper.ID_PEDIDO+" = '"+id_tx+"'");
+//     }
+	public boolean borrarEjercicio(String id) {
+	       try{
+	         db.execSQL("DELETE  FROM "+DataBaseHelper.TABLA_EJER_USUARIO + " WHERE ejercicio_id = '"+id+"'");
+	        return true;
+	       }catch(Exception e){return false;}
+	}
 	public boolean borrarDB() 
 	{
 		
@@ -182,6 +196,21 @@ public class DataBaseAdapter {
 	    		   Log.w("Existe DB","Si existe ejercicios");
 			  }else{
 				  Log.w("Existe DB","No existe ejercicios");
+			  }
+			cur.close();
+	        return  var;
+	       }catch(Exception e){return var;}
+	}
+	public boolean existeEjercicioUsuario(String ejercicio_id){
+		boolean var= false;
+		try{
+	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJER_USUARIO + " WHERE ejercicio_id = '"+ejercicio_id+"'",null);
+	    	   if(cur.moveToFirst())
+			   {
+	    		   var=true;
+	    		   Log.w("Existe DB","Si existe ejercicios_Usuario");
+			  }else{
+				  Log.w("Existe DB","No existe ejercicios_Usuario");
 			  }
 			cur.close();
 	        return  var;

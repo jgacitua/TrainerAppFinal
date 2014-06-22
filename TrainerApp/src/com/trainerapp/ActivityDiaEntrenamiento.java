@@ -33,7 +33,7 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
        // Cargar Nombre Dia de la semana
          diaSemana.setText(b.getString("DIA"));
         //--------------------------
-        hrTotal.setText(sumarTotalTiempo(agregarListDias()));
+        hrTotal.setText(sumarTotalTiempo(obtenerTiemposEje()));
         listDias.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                 int position, long id) {
@@ -44,18 +44,25 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 	public void onResume(){
 	    super.onResume();
 	    agregarListDias();
-	    hrTotal.setText(sumarTotalTiempo(agregarListDias()));
+	    hrTotal.setText(sumarTotalTiempo(obtenerTiemposEje()));
 	}
-	public String[] agregarListDias(){
+	public void agregarListDias(){
+		db.open();
+		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario();
+		for(int i=0; i<dtoEjer.length;i++){
+			ejerciciosDiaArray.add( new MenuItem(dtoEjer[i].getNombre(), dtoEjer[i].getTiempo()));
+		}
+        AdapterListEjeDia adaptador = new AdapterListEjeDia(ActivityDiaEntrenamiento.this, ejerciciosDiaArray);
+        listDias.setAdapter(adaptador);
+		db.close();
+	}
+	public String[] obtenerTiemposEje(){
 		db.open();
 		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario();
 		String[] tiempoTotal = new String[dtoEjer.length];
 		for(int i=0; i<dtoEjer.length;i++){
 			tiempoTotal[i]=  dtoEjer[i].getTiempo();
-			ejerciciosDiaArray.add( new MenuItem(dtoEjer[i].getNombre(), dtoEjer[i].getTiempo()));
 		}
-        AdapterListEjeDia adaptador = new AdapterListEjeDia(ActivityDiaEntrenamiento.this, ejerciciosDiaArray);
-        listDias.setAdapter(adaptador);
 		db.close();
         return tiempoTotal;
 	}

@@ -9,7 +9,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	
 	/** Propiedades a partir de aquí. */
 	public static final String DATABASE_NAME = "DBTrainerApp";
-	public static final int DATABASE_VERSION = 11;
+	public static final int DATABASE_VERSION = 14;
 	//-------------------------------------TABLA RUTINA----------------------------------------------
 	public static final String TABLA_RUT = "rutina";
 	public static final String ID_RUT = "id_rut";
@@ -39,7 +39,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	public static final String TIEMPO = "tiempo";
 	//***********************************************************************************************
 	public static final String TAB_CREATE_EJERCICIO = "create table " + TABLA_EJERCICIO
-            + " (" + ID_EJER + " text PRIMARY KEY , "+ NOMBRE_EJER + " text,"+ DESCRIPCION + " text, "+
+            + " (" + ID_EJER + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ NOMBRE_EJER + " text,"+ DESCRIPCION + " text, "+
 			FOTO +" text, "+ TIEMPO +" text, "+ ZONA_MUSCULAR_ID +" text);";
 	//---------------------------TABLA ZONA MUSCULAR-------------------------------------------------
 	public static final String TABLA_ZONA_MUS = "zona_muscular";
@@ -47,14 +47,14 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	public static final String NOMBRE_ZONA = "nombre";
 	//***********************************************************************************************
 	public static final String TAB_CREATE_ZONA_MUS = "create table " + TABLA_ZONA_MUS
-            + " (" + ID_ZONA + " text PRIMARY KEY , "+ NOMBRE_ZONA + " text);";
+            + " (" + ID_ZONA + " text PRIMARY KEY, "+ NOMBRE_ZONA + " text);";
 	//---------------------------TABLA EJERCICIO USUARIO--------------------*-------------------------
 	public static final String TABLA_EJER_USUARIO = "ejercicio_usuario";
 	public static final String ID_EJER_USU = "id";
 	public static final String EJERCICIO_ID = "ejercicio_id";
 	//***********************************************************************************************
 	public static final String TAB_CREATE_EJER_USUARIO = "create table " + TABLA_EJER_USUARIO
-            + " (" + ID_EJER_USU + " text PRIMARY KEY , "+ EJERCICIO_ID + " text);";
+            + " (" + ID_EJER_USU + " INTEGER PRIMARY KEY AUTOINCREMENT , "+ EJERCICIO_ID + " text);";
 	public DataBaseHelper(Context contexto) {
 	   	super(contexto, DATABASE_NAME, null, DATABASE_VERSION);
 	}

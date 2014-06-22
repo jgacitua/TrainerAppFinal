@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="95dp"
         android:layout_marginTop="10dp"
-        android:onClick="OnClickSeleccionar"
         android:text="@string/TxtSeleccionar"
         android:textStyle="bold" />
 

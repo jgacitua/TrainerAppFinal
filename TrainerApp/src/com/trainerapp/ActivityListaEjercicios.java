@@ -3,12 +3,9 @@ package com.trainerapp;
 import java.util.ArrayList;
 
 import clases.dominio.DtoEjercicio;
-import clases.dominio.DtoEjercicioUsuario;
 import clases.dominio.DtoZonaMuscular;
 import database.controladores.DataBaseAdapter;
 import adaptadoresList.AdapterListDias;
-import adaptadoresList.AdapterListEjeDia;
-import adaptadoresList.MenuItem;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
