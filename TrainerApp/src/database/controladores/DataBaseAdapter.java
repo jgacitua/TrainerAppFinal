@@ -13,7 +13,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import database.controladores.DataBaseHelper;
-
+ 
 public class DataBaseAdapter {
     private DataBaseHelper dbHelper;
     private SQLiteDatabase db;
