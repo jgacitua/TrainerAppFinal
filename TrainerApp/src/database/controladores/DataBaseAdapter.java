@@ -79,7 +79,7 @@ public class DataBaseAdapter {
 	public DtoRutina obtenerRutina(String id) {
 	       try{
 	    	   DtoRutina dtoRutina = new DtoRutina();
-	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_RUT + " WHERE id_Par = '"+id+"'",null);;
+	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_RUT + " WHERE id_rut = '"+id+"'",null);;
 	    	   if(cur.moveToFirst())
 			   {
 	    		  dtoRutina.setAll(cur.getString(0), cur.getString(1), cur.getString(3), cur.getString(2));
@@ -90,6 +90,29 @@ public class DataBaseAdapter {
 			  }
 			cur.close();
 	        return  dtoRutina;
+	       }catch(Exception e){return null;}
+	}
+	public DtoEjercicioUsuario[] obtenerEjerciciosUsuario() {
+	       try{
+	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJER_USUARIO,null);
+	    	   DtoEjercicioUsuario[] dtoEjeUsu = new DtoEjercicioUsuario[cur.getCount()];
+	    	   if(cur.moveToFirst())
+			   {
+	    		  int i= 0;
+				do{ 
+				    Cursor cur1= db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJERCICIO + " WHERE id = '"+cur.getString(1)+"'",null);
+			    	   if(cur1.moveToFirst())
+					   {
+			    		    dtoEjeUsu[i] = new DtoEjercicioUsuario();
+			    		   	dtoEjeUsu[i].setAll(cur.getString(0), cur1.getString(1), cur1.getString(4));
+					   }
+				   i= i +1;
+				   cur1.close();
+				}while(cur.moveToNext());
+			  }
+			cur.close();
+		
+	        return  dtoEjeUsu;
 	       }catch(Exception e){return null;}
 	}
 	public boolean borrarDB() 

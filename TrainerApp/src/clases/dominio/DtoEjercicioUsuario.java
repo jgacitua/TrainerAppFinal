@@ -11,9 +11,14 @@ public class DtoEjercicioUsuario extends DtoEjercicio {
 		this.EJERCICIO_ID="";
 	}
 	
-	public void setAll(String id, String nombre, String ejercicio_id){
+	public void setAll(String id, String nombre, String ejercicio_id, String tiempo){
 		this.ID=id;
 		this.NOMBRE=nombre;
+		this.EJERCICIO_ID=ejercicio_id;
+		this.TIEMPO = tiempo;
+	}
+	public void setAll(String id,String ejercicio_id){
+		this.ID=id;
 		this.EJERCICIO_ID=ejercicio_id;
 	}
 	

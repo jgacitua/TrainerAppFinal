@@ -16,14 +16,6 @@
         android:textAppearance="@style/EstiloNegrasText"
         android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="190dp"
-        android:text="@string/TxtTiempo"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <ListView
         android:id="@+id/listEjeDia"
         android:layout_width="match_parent"
