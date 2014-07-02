@@ -9,10 +9,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:lines="1"
-        android:minLines="1"
+        android:lines="2"
+        android:maxLines="2"
+        android:minLines="2"
         android:text="@string/TxtTrainerApp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="@style/EstiloNegrasTextExtramin"
         android:width="220dp" />
  
     <TextView

@@ -1,4 +1,7 @@
 package com.trainerapp;
+
+import clases.dominio.DtoEjercicioUsuario;
+import database.controladores.DataBaseAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,25 +16,53 @@ public class ActivityVerRutina extends ActivityTiempo{
 	private TextView hrSabado;
 	private TextView hrDomingo;  
 	private TextView hrTotal;
+	private DataBaseAdapter db;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); 
         setContentView(R.layout.activity_ver_rutina);
-        hrLunes = (TextView) findViewById(R.id.txtHorasLunes);
-        hrMartes = (TextView) findViewById(R.id.txtHorasMartes);
-        hrMiercoles = (TextView) findViewById(R.id.txtHoraMiercoles);
-        hrJueves = (TextView) findViewById(R.id.txtHorasJueves);
-        hrViernes = (TextView) findViewById(R.id.txtHorasViernes);
-        hrSabado = (TextView) findViewById(R.id.txtHorasSabado);
-        hrDomingo = (TextView) findViewById(R.id.txtHorasDomingo);
+        db =new DataBaseAdapter(this);
+        agregarTextosDias();
         
-        hrTotal = (TextView) findViewById(R.id.txtHoraTotal);
-        //Extrayendo a un String array las horas de los dias para luego poder sumarlas
-        String diasHoras[] = {hrLunes.getText().toString(),hrMartes.getText().toString(),
-        		hrMiercoles.getText().toString(),hrJueves.getText().toString(),
-        		hrViernes.getText().toString(),hrSabado.getText().toString(),hrDomingo.getText().toString()};
-       hrTotal.setText(sumarTotalTiempo(diasHoras)); 
+        
     }
-	
+	public void onResume(){
+	    super.onResume();
+	    agregarTextosDias();
+	}
+	private void agregarTextosDias() {
+		    hrLunes = (TextView) findViewById(R.id.txtHorasLunes);
+	        hrLunes.setText(agregarTiemposDias("Lunes"));
+	        hrMartes = (TextView) findViewById(R.id.txtHorasMartes);
+	        hrMartes.setText(agregarTiemposDias("Martes"));
+	        hrMiercoles = (TextView) findViewById(R.id.txtHoraMiercoles);
+	        hrMiercoles.setText(agregarTiemposDias("Miercoles"));
+	        hrJueves = (TextView) findViewById(R.id.txtHorasJueves);
+	        hrJueves.setText(agregarTiemposDias("Jueves"));
+	        hrViernes = (TextView) findViewById(R.id.txtHorasViernes);
+	        hrViernes.setText(agregarTiemposDias("Viernes"));
+	        hrSabado = (TextView) findViewById(R.id.txtHorasSabado);
+	        hrSabado.setText(agregarTiemposDias("Sabado"));
+	        hrDomingo = (TextView) findViewById(R.id.txtHorasDomingo);
+	        hrDomingo.setText(agregarTiemposDias("Domingo"));
+	        hrTotal = (TextView) findViewById(R.id.txtHoraTotal);
+	        //Extrayendo a un String array las horas de los dias para luego poder sumarlas
+	        String diasHoras[] = {hrLunes.getText().toString(),hrMartes.getText().toString(),
+	        		hrMiercoles.getText().toString(),hrJueves.getText().toString(),
+	        		hrViernes.getText().toString(),hrSabado.getText().toString(),hrDomingo.getText().toString()};
+	       hrTotal.setText(sumarTotalTiempo(diasHoras)); 
+		
+	}
+	public String agregarTiemposDias(String dia){
+		db.open();
+		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario(dia);
+		String[] tiempos = new String[dtoEjer.length];
+		
+		for(int i=0; i<dtoEjer.length;i++){
+			tiempos[i]= dtoEjer[i].getTiempo();
+		}
+		db.close();
+		return sumarTotalTiempo(tiempos);
+	}
 	public void llamarActivityDiaEntrenamiento(String dia){
 		Intent i = new Intent(ActivityVerRutina.this,ActivityDiaEntrenamiento.class); 
 		i.putExtra("DIA", dia);

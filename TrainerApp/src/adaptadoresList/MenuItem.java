@@ -5,14 +5,16 @@ public class MenuItem {
 	   private String nombre;
 	   private int logotipo;
 	   private String tiempo;
+	   private String id;
 	 
 	   public MenuItem(String nombre, int logotipo) {
 	      this.nombre = nombre;
 	      this.logotipo = logotipo;
 	   }
-	   public MenuItem(String nombre, String tiempo) {
+	   public MenuItem(String nombre, String tiempo, String id) {
 		      this.nombre = nombre;
 		      this.tiempo = tiempo;
+		      this.id = id;
 		   }
 	 
 	   public void setNombre(String nombre) { this.nombre = nombre; }
@@ -22,5 +24,6 @@ public class MenuItem {
 	   public String getNombre() { return nombre; }
 	   public int getLogotipo() { return logotipo; }
 	   public String getTiempo() { return tiempo; }
+	   public String getId() { return id; }
 	 
 	}

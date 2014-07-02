@@ -9,6 +9,7 @@ import adaptadoresList.AdapterListDias;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -56,7 +57,7 @@ public class ActivityListaEjercicios extends Activity{
         db.close();
 	}
 	public void llamarActivityDiaEntrenamiento(String id, String dia,String zona){
-		Intent i = new Intent(ActivityListaEjercicios.this,ActivityDescripcion.class); 
+		Intent i = new Intent(ActivityListaEjercicios.this,ScreenSlideActivity.class); 
 		i.putExtra("DIA", dia);
 		i.putExtra("ID", id);
 		i.putExtra("ZONA", zona);
@@ -66,5 +67,11 @@ public class ActivityListaEjercicios extends Activity{
 	    {
 	    	    
 		 	this.finish();
+	    }
+	 public boolean onKeyDown(int keyCode, KeyEvent event) {
+	        if (keyCode == KeyEvent.KEYCODE_BACK) {
+	            // Show your Alert Box here
+	        }
+	        return false;
 	    }
 }

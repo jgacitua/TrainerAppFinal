@@ -15,10 +15,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:lines="1"
+            android:lines="2"
+            android:maxLines="2"
             android:minLines="1"
             android:text="@string/TxtTrainerApp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="@style/EstiloNegrasTextExtramin"
             android:width="250dp" />
 
         <TextView
@@ -35,11 +36,9 @@
 
     <ImageButton
         android:id="@+id/ibtnEliminar"
-        android:layout_width="42dp"
-        android:layout_height="41dp"
-        android:layout_marginLeft="2dp"
-        android:background="@null"
-        android:contentDescription="@string/TxtDescripcion"
-        android:src="@drawable/elimina_cupon" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/elimina_cupon"
+        android:contentDescription="@string/TxtDescripcion" />
 
 </LinearLayout>

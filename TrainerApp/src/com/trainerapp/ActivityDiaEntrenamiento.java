@@ -22,6 +22,7 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 	private TextView hrTotal;
 	private Bundle b;
 	private String dia;
+	private String HoraTotalDia;
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db =new DataBaseAdapter(this);
@@ -36,26 +37,28 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
          diaSemana.setText(dia);
         //--------------------------
         hrTotal.setText(sumarTotalTiempo(obtenerTiemposEje()));
+        HoraTotalDia = hrTotal.getText().toString();
         listDias.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                 int position, long id) {
                 }
-
+            			
             });
     }
 	public void onResume(){
 	    super.onResume();
 	    agregarListDias();
 	    hrTotal.setText(sumarTotalTiempo(obtenerTiemposEje()));
+	    HoraTotalDia = hrTotal.getText().toString();
 	}
 	public void agregarListDias(){
 		ejerciciosDiaArray= new ArrayList<MenuItem>();
 		db.open();
 		DtoEjercicioUsuario[] dtoEjer = db.obtenerEjerciciosUsuario(dia);
 		for(int i=0; i<dtoEjer.length;i++){
-			ejerciciosDiaArray.add( new MenuItem(dtoEjer[i].getNombre(), dtoEjer[i].getTiempo()));
+			ejerciciosDiaArray.add( new MenuItem(dtoEjer[i].getNombre(), dtoEjer[i].getTiempo(),dtoEjer[i].getId()));
 		}
-        AdapterListEjeDia adaptador = new AdapterListEjeDia(ActivityDiaEntrenamiento.this, ejerciciosDiaArray);
+        AdapterListEjeDia adaptador = new AdapterListEjeDia(ActivityDiaEntrenamiento.this, ejerciciosDiaArray, this);
         listDias.setAdapter(adaptador);
 		db.close();
 	}
@@ -69,10 +72,14 @@ public class ActivityDiaEntrenamiento extends ActivityTiempo{
 		db.close();
         return tiempoTotal;
 	}
+	public void actualizarTiempo(){
+		hrTotal.setText(sumarTotalTiempo(obtenerTiemposEje()));
+	}
 	 public void OnClickEditar(View view)
 	    {
 		 Intent i = new Intent(ActivityDiaEntrenamiento.this,ActivityZonasMusculares.class);
 		 i.putExtra("DIA", b.getString("DIA"));
+		 i.putExtra("TIEMPO",HoraTotalDia);
          startActivity(i);
 	    }
 }

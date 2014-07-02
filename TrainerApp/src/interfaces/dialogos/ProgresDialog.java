@@ -1,7 +1,6 @@
 package interfaces.dialogos;
 
 import clases.dominio.DtoEjercicioMuscular;
-import clases.dominio.DtoEjercicioUsuario;
 import clases.dominio.DtoZonaMuscular;
 
 import com.trainerapp.ActivityMenu;
@@ -33,25 +32,36 @@ public class ProgresDialog extends AsyncTask<Void, Void, Void>{
     @Override
     protected Void doInBackground(Void... params) {
     	DtoEjercicioMuscular dtoEjercioM = new DtoEjercicioMuscular();
-    	DtoEjercicioUsuario dtoEje = new DtoEjercicioUsuario();
     	DtoZonaMuscular dtoZonaMuscular = new DtoZonaMuscular();
     	      db.open();
     	     //------------------------------- espalda
-    	      dtoEjercioM.setAll("Remo sentado","descripcionnnn","as", "2","01:10:20");
+    	      dtoEjercioM.setAll("Remo sentado","descripcionnnn","as", "2","00:10:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("Jalon de polea frente con agarre","descripcionnnn","as", "2","01:10:20");
+    	      dtoEjercioM.setAll("Jalon de polea frente con agarre","descripcionnnn","as", "2","00:14:40");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("Remo orizontal mancuernas","descripcionnnn","as", "2","01:10:20");
+    	      dtoEjercioM.setAll("Pull-over con polea alta brazos extendidos","descripcionnnn","as", "2","00:15:30");
+    	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
+    	      dtoEjercioM.setAll("Remo horizontal a una mano con manuernas","descripcionnnn","as", "2","00:22:20");
+    	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
+    	      dtoEjercioM.setAll("Remo en barra T con apoyo al pecho","descripcionnnn","as", "2","00:13:30");
+    	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
+    	      dtoEjercioM.setAll("Peso muerto con barra","descripcionnnn","as", "2","00:15:00");
+    	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
+    	      dtoEjercioM.setAll("Extensión de tronco en banco a 90º o hiperextensiones","descripcionnnn","as", "2","00:14:30");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
     	    //------------------------------- hombros
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
     	      dtoEjercioM.setAll("Rotacion externa del hombro ", "descripcionnnn","safa", "1","00:30:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("Ejercicios Bkn", "descripcionnnn","safa", "1","00:10:20");
+    	      dtoEjercioM.setAll("Sentado con mancuernas", "descripcionnnn","safa", "1","00:10:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("Ejercicios Bkn", "descripcionnnn","safa", "1","00:17:20");
+    	      dtoEjercioM.setAll("Frontal con rotación de la muñeca", "descripcionnnn","safa", "1","00:17:20");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
-    	      dtoEjercioM.setAll("Ejercicios Bkn", "descripcionnnn","safa", "1","00:15:10");
+    	      dtoEjercioM.setAll("Elevaciones laterales, acostado de lado", "descripcionnnn","safa", "1","00:15:10");
+    	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
+    	      dtoEjercioM.setAll("Elevaciones frontales con mancuerna", "descripcionnnn","safa", "1","00:13:10");
+    	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
+    	      dtoEjercioM.setAll("Remo al cuello, manos separadas (o rowing vertica)", "descripcionnnn","safa", "1","00:14:00");
     	      Log.w("Insertando Ejercicios",""+db.insertarEjercicio(dtoEjercioM));
     	    //------------------------------- Pectorales
     	      dtoEjercioM.setAll("Mariposa","descripcionnnn","as", "3","00:15:20");

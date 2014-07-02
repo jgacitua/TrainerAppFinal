@@ -161,6 +161,12 @@ public class DataBaseAdapter {
 	        return true;
 	       }catch(Exception e){return false;}
 	}
+	public boolean borrarEjercicioUsuario(String id) {
+	       try{
+	         db.execSQL("DELETE  FROM "+DataBaseHelper.TABLA_EJER_USUARIO + " WHERE id = '"+id+"'");
+	        return true;
+	       }catch(Exception e){return false;}
+	}
 	public boolean borrarDB() 
 	{
 		

@@ -2,8 +2,10 @@ package adaptadoresList;
 
 import java.util.ArrayList;
 
+import com.trainerapp.ActivityDiaEntrenamiento;
 import com.trainerapp.R;
 
+import database.controladores.DataBaseAdapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +19,12 @@ public class AdapterListEjeDia extends BaseAdapter{
 	 
 	   private ArrayList<MenuItem> listadoitemsMenu;
 	   private LayoutInflater lInflater;
-	 
-	   public AdapterListEjeDia(Context context, ArrayList<MenuItem> itemsMenu) {
+	   private DataBaseAdapter db;
+	   private ActivityDiaEntrenamiento activity ;
+	   public AdapterListEjeDia(Context context, ArrayList<MenuItem> itemsMenu, ActivityDiaEntrenamiento activity) {
 	      this.lInflater = LayoutInflater.from(context);
 	      this.listadoitemsMenu = itemsMenu;
+	      this.activity = activity;
 	   }
 	 
 	   @Override
@@ -31,12 +35,13 @@ public class AdapterListEjeDia extends BaseAdapter{
 	 
 	   @Override
 	   public long getItemId(int arg0) { return arg0; }
+	   public String getItemIdEjercicioUsu(int arg0) { return listadoitemsMenu.get(arg0).getId(); }
 	 
 	   public String getItemNomEjercicio(int arg0) { return listadoitemsMenu.get(arg0).getNombre(); }
 	   @Override
-	   public View getView(int arg0, View arg1, ViewGroup arg2) {
+	   public View getView(final int arg0, View arg1, ViewGroup arg2) {
 	      ContenedorView contenedor = null;
-	 
+	      db =new DataBaseAdapter(activity);
 	      if (arg1 == null){
 	         arg1 = lInflater.inflate(R.layout.list_item_ejercicios_dia, null);
 	         contenedor = new ContenedorView();
@@ -48,6 +53,11 @@ public class AdapterListEjeDia extends BaseAdapter{
 	         contenedor.btnEliminar.setOnClickListener(new OnClickListener() {
 			     @Override
 			        public void onClick(View v) {
+			    	 	db.open();
+			    	 	db.borrarEjercicioUsuario(getItemIdEjercicioUsu(arg0));
+			    	 	activity.agregarListDias();
+			    	 	activity.actualizarTiempo();
+			    	 	db.close();
 			    	 	
 			     }
 			    });

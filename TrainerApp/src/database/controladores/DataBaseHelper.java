@@ -9,7 +9,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	
 	/** Propiedades a partir de aquí. */
 	public static final String DATABASE_NAME = "DBTrainerApp";
-	public static final int DATABASE_VERSION = 17;
+	public static final int DATABASE_VERSION = 24;
 	//-------------------------------------TABLA RUTINA----------------------------------------------
 	public static final String TABLA_RUT = "rutina";
 	public static final String ID_RUT = "id_rut";
@@ -67,15 +67,18 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	    db.execSQL(TAB_CREATE_ZONA_MUS);
 	    db.execSQL(TAB_CREATE_EJER_USUARIO);
 	}
+	public void onCreate2(SQLiteDatabase db) {
+		db.execSQL(TAB_CREATE_RUT);	
+	    db.execSQL(TAB_CREATE_DIAENTR);
+	    db.execSQL(TAB_CREATE_EJER_USUARIO);
+	}
 	public void Delete(SQLiteDatabase db){
 	//	db.execSQL("DROP DATABASE IF EXISTS " + DATABASE_NAME);
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_RUT);
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_DIAENTR);
-	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_EJERCICIO);
-	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_ZONA_MUS);
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLA_EJER_USUARIO);
 	    Log.w("Delete DB","Se borro DB");
-	    onCreate(db);
+	    onCreate2(db);
 	}
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 	        Log.w("SqLiteHelper", "Upgrading database from version " + oldVersion

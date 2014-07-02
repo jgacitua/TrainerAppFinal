@@ -4,6 +4,7 @@ import android.app.Activity;
 public class ActivityTiempo extends Activity{
 
 	 public String sumarTotalTiempo(String[] hora2 ){
+		 
 		 String hora1 = "00:00:00";
         for(int i=0; i<hora2.length; i++)
 		 hora1 = sumartiempo(hora1, hora2[i]);

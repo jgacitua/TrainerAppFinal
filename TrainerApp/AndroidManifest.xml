@@ -28,6 +28,7 @@
         <activity android:name="com.trainerapp.ActivityZonasMusculares" android:screenOrientation="portrait" ></activity>
         <activity android:name="com.trainerapp.ActivityListaEjercicios" android:screenOrientation="portrait" ></activity>
         <activity android:name="com.trainerapp.ActivityDescripcion" android:screenOrientation="portrait" ></activity>
+         <activity android:name="com.trainerapp.ScreenSlideActivity" android:screenOrientation="portrait" ></activity>
     </application>
 
 </manifest>
