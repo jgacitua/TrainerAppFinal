@@ -1,15 +1,11 @@
 package com.trainerapp;
 
-import clases.dominio.DtoEjercicioUsuario;
 import database.controladores.DataBaseAdapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.CheckBox;
-import android.widget.TextView;
 
 public class FragmentFinal extends Fragment {
 
@@ -54,10 +50,11 @@ public class FragmentFinal extends Fragment {
 //        return rootView;
 //    }
 	 // Store instance variables
-    private String title;
-    private int page;
+	@SuppressWarnings("unused")
 	private String id;
+	@SuppressWarnings("unused")
 	private String dia;
+	@SuppressWarnings("unused")
 	private DataBaseAdapter db;
 
     // newInstance constructor for creating fragment with arguments
@@ -76,8 +73,6 @@ public class FragmentFinal extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        page = getArguments().getInt("someInt", 0);
-        title = getArguments().getString("someTitle");
         id = getArguments().getString("ID");
         dia = getArguments().getString("DIA");
     }

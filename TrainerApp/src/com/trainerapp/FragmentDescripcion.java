@@ -12,50 +12,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class FragmentDescripcion extends Fragment {
-
-//    private String id;
-//    private DataBaseAdapter db;
-//	private String dia;
-//	private CheckBox chkBox;
-//	private String position;
-//
-//	@Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//            Bundle savedInstanceState) {
-//        ViewGroup rootView = (ViewGroup) inflater.inflate(
-//                R.layout.fragment_screen_slide_page, container, false);
-//        chkBox = (CheckBox) rootView.findViewById(R.id.chkBox);
-//        db = new DataBaseAdapter(getActivity());
-//        Bundle args = getArguments();
-//        id = args.getString("ID");
-//        dia = args.getString("DIA");
-//        position = args.getString("POSITION");
-//        db.open();
-//        chkBox.setChecked(db.existeEjercicioUsuario(id,dia));
-//       db.close();
-//       chkBox.setOnClickListener(new OnClickListener() {
-//     	  public void onClick(View v) {
-//                     db.open();
-//     		if (((CheckBox) v).isChecked()) {
-//     			if(!db.existeEjercicioUsuario(id,dia)){
-//     				DtoEjercicioUsuario dtoEjerUs = new DtoEjercicioUsuario();
-//     				dtoEjerUs.setAll(id, dia);
-//     				db.insertarEjercicioUsuario(dtoEjerUs);
-//     				
-//     			}
-//     		}else { db.borrarEjercicio(id);
-//     			   
-//     		}
-//          db.close();
-//     	  }
-//     	 
-//     	});
-//
-//        return rootView;
-//    }
-	 // Store instance variables
-    private String title;
-    private int page;
+	
 	private String id;
 	private String dia;
 	private CheckBox chkBox;
@@ -77,8 +34,6 @@ public class FragmentDescripcion extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        page = getArguments().getInt("someInt", 0);
-        title = getArguments().getString("someTitle");
         id = getArguments().getString("ID");
         dia = getArguments().getString("DIA");
     }
@@ -87,7 +42,8 @@ public class FragmentDescripcion extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_descripcion, container, false);
-        TextView descripcion = (TextView) view.findViewById(R.id.txtDescripcion);
+        @SuppressWarnings("unused")
+		TextView descripcion = (TextView) view.findViewById(R.id.txtDescripcion);
         chkBox = (CheckBox) view.findViewById(R.id.chkBox);
         db = new DataBaseAdapter(getActivity());
         db.open();
