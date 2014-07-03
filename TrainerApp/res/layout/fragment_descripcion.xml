@@ -5,9 +5,22 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvLabel1"
+        android:id="@+id/txtDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:maxWidth="200dp"
+        android:shadowDx="2"
+        android:text="Descripcion de ejercicio completamente descrito kaljlakjakljlakjlkajlkajlakjlkajlkajlakjlakjlakjalkjalkjalkkajsdlkjaklsjdklajsdkljalksdjlkajsdlkjaslkjdlkaskllllllllllllllllllllllllllllllllllljaskdjaksjdkjakldsjlkakskksssssssssssssssssssssdjkldsjlkjsadlkjalksdjlkajsdlkjalskjdlaksjdlkajsdkjaskdjlkasjdlkjaslkkjfdskj" />
+
+    <CheckBox
+        android:id="@+id/chkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/TxtSeleccionar"
+        android:textStyle="bold" />
  
 </LinearLayout>

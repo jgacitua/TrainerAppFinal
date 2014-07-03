@@ -1146,7 +1146,6 @@ containing a value of this type.
         public static final int button1=0x7f050053;
         public static final int buttonDialogAceptar=0x7f050075;
         public static final int buttonDialogCancelar=0x7f050076;
-        public static final int checkBox1=0x7f05007c;
         public static final int checkbox=0x7f05002d;
         public static final int chkBox=0x7f05004c;
         public static final int collapseActionView=0x7f05000d;
@@ -1222,7 +1221,8 @@ containing a value of this type.
         public static final int title=0x7f05002b;
         public static final int titulo_zona=0x7f05003d;
         public static final int top_action_bar=0x7f050020;
-        public static final int tvLabel1=0x7f05007b;
+        public static final int tvLabel1=0x7f05007c;
+        public static final int txtDescripcion=0x7f05007b;
         public static final int txtHoraMiercoles=0x7f05005a;
         public static final int txtHoraTotal=0x7f050063;
         public static final int txtHoraTotalDia=0x7f050050;

@@ -58,6 +58,7 @@ public class FragmentInicio extends Fragment {
     private int page;
 	private String id;
 	private String dia;
+	private DataBaseAdapter db;
 
     // newInstance constructor for creating fragment with arguments
     public static FragmentInicio newInstance(int page, String title, String id, String dia) {
@@ -86,6 +87,7 @@ public class FragmentInicio extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_inicio, container, false);
         TextView tvLabel = (TextView) view.findViewById(R.id.tvLabel1);
+        db = new DataBaseAdapter(getActivity());
         tvLabel.setText(id + " -- " + dia);
         return view;
     }

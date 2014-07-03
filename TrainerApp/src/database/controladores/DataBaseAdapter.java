@@ -52,8 +52,8 @@ public class DataBaseAdapter {
 	public boolean insertarEjercicio(DtoEjercicioMuscular EjercicioMuscular){
 		try{
 			db.execSQL("insert into "+ DataBaseHelper.TABLA_EJERCICIO+" ( "+DataBaseHelper.NOMBRE_EJER
-	        		+"," + DataBaseHelper.DESCRIPCION+", "+DataBaseHelper.TIEMPO+", "+DataBaseHelper.FOTO+", "+DataBaseHelper.ZONA_MUSCULAR_ID+") "+" values ('" +EjercicioMuscular.getNombre()+"','"
-				   +EjercicioMuscular.getDescripcion()+"','"+EjercicioMuscular.getTiempo()+"','"+EjercicioMuscular.getFoto()+"','"+EjercicioMuscular.getZonaMuscularId()+"')");
+	        		+"," + DataBaseHelper.DESCRIPCION+", "+DataBaseHelper.TIEMPO+", "+DataBaseHelper.FOTO+", "+DataBaseHelper.ZONA_MUSCULAR_ID+", "+DataBaseHelper.SEXO+", "+DataBaseHelper.DIFICULTAD+") "+" values ('" +EjercicioMuscular.getNombre()+"','"
+				   +EjercicioMuscular.getDescripcion()+"','"+EjercicioMuscular.getTiempo()+"','"+EjercicioMuscular.getFoto()+"','"+EjercicioMuscular.getZonaMuscularId()+"','"+EjercicioMuscular.getSexo()+"','"+EjercicioMuscular.getDificultad()+"')");
 			return true;
 		}catch(Exception e){
 			return false;

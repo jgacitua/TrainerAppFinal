@@ -58,6 +58,8 @@ public class FragmentDescripcion extends Fragment {
     private int page;
 	private String id;
 	private String dia;
+	private CheckBox chkBox;
+	private DataBaseAdapter db;
 
     // newInstance constructor for creating fragment with arguments
     public static FragmentDescripcion newInstance(int page, String title, String id, String dia) {
@@ -85,8 +87,29 @@ public class FragmentDescripcion extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_descripcion, container, false);
-        TextView tvLabel = (TextView) view.findViewById(R.id.tvLabel1);
-        tvLabel.setText(id + " -- " + dia);
+        TextView descripcion = (TextView) view.findViewById(R.id.txtDescripcion);
+        chkBox = (CheckBox) view.findViewById(R.id.chkBox);
+        db = new DataBaseAdapter(getActivity());
+        db.open();
+      chkBox.setChecked(db.existeEjercicioUsuario(id,dia));
+     db.close();
+     chkBox.setOnClickListener(new OnClickListener() {
+   	  public void onClick(View v) {
+                   db.open();
+   		if (((CheckBox) v).isChecked()) {
+   			if(!db.existeEjercicioUsuario(id,dia)){
+   				DtoEjercicioUsuario dtoEjerUs = new DtoEjercicioUsuario();
+   				dtoEjerUs.setAll(id, dia);
+   				db.insertarEjercicioUsuario(dtoEjerUs);
+   				
+   			}
+   		}else { db.borrarEjercicio(id);
+   			   
+   		}
+        db.close();
+   	  }
+   	 
+   	});
         return view;
     }
 }

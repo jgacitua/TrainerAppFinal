@@ -58,6 +58,7 @@ public class FragmentFinal extends Fragment {
     private int page;
 	private String id;
 	private String dia;
+	private DataBaseAdapter db;
 
     // newInstance constructor for creating fragment with arguments
     public static FragmentFinal newInstance(int page, String title, String id, String dia) {
@@ -85,7 +86,7 @@ public class FragmentFinal extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_final, container, false);
-        TextView tvLabel = (TextView) view.findViewById(R.id.tvLabel1);
+        db = new DataBaseAdapter(getActivity());
         return view;
     }
 }

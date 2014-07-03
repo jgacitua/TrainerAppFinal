@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="10"
-        android:targetSdkVersion="10" />
+        android:targetSdkVersion="11" />
 
     <application
         android:allowBackup="true"
@@ -28,7 +28,7 @@
         <activity android:name="com.trainerapp.ActivityZonasMusculares" android:screenOrientation="portrait" ></activity>
         <activity android:name="com.trainerapp.ActivityListaEjercicios" android:screenOrientation="portrait" ></activity>
         <activity android:name="com.trainerapp.ActivityDescripcion" android:screenOrientation="portrait" ></activity>
-         <activity android:name="com.trainerapp.ScreenSlideActivity" android:screenOrientation="portrait" ></activity>
+         <activity android:name="com.trainerapp.ActivitySlideDescripcion" android:screenOrientation="portrait" ></activity>
     </application>
 
 </manifest>

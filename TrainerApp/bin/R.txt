@@ -301,7 +301,6 @@ int id btnViernes 0x7f05005d
 int id button1 0x7f050053
 int id buttonDialogAceptar 0x7f050075
 int id buttonDialogCancelar 0x7f050076
-int id checkBox1 0x7f05007c
 int id checkbox 0x7f05002d
 int id chkBox 0x7f05004c
 int id collapseActionView 0x7f05000d
@@ -377,7 +376,8 @@ int id tiempoList 0x7f05007d
 int id title 0x7f05002b
 int id titulo_zona 0x7f05003d
 int id top_action_bar 0x7f050020
-int id tvLabel1 0x7f05007b
+int id tvLabel1 0x7f05007c
+int id txtDescripcion 0x7f05007b
 int id txtHoraMiercoles 0x7f05005a
 int id txtHoraTotal 0x7f050063
 int id txtHoraTotalDia 0x7f050050

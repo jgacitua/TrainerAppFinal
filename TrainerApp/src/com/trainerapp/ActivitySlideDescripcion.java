@@ -6,11 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 
-public class ScreenSlideActivity extends FragmentActivity {
+public class ActivitySlideDescripcion extends FragmentActivity {
 private MyPagerAdapter adapterViewPager;
 private static Bundle b;
 
@@ -73,6 +71,7 @@ private static Bundle b;
         setContentView(R.layout.activity_screen_slide);
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
+        vpPager.setPageTransformer(true, new ZoomOutPageTransformer());
         vpPager.setAdapter(adapterViewPager);
       Intent iin= getIntent();
        b = iin.getExtras();

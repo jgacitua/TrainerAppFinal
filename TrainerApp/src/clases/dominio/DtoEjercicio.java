@@ -33,4 +33,5 @@ public class DtoEjercicio {
 	public String getTiempo(){
 		return this.TIEMPO;
 	}
+	
 }

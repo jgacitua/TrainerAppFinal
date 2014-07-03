@@ -57,7 +57,7 @@ public class ActivityListaEjercicios extends Activity{
         db.close();
 	}
 	public void llamarActivityDiaEntrenamiento(String id, String dia,String zona){
-		Intent i = new Intent(ActivityListaEjercicios.this,ScreenSlideActivity.class); 
+		Intent i = new Intent(ActivityListaEjercicios.this,ActivitySlideDescripcion.class); 
 		i.putExtra("DIA", dia);
 		i.putExtra("ID", id);
 		i.putExtra("ZONA", zona);
