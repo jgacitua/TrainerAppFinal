@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="C:/Users/Jorge/workspace/cpm/lib/mysql-connector-java-5.1.21.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge/Dropbox/Team Blue (1)/Taller Integrado/poi-3.9.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

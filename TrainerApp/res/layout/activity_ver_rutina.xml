@@ -275,12 +275,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnVerRutina"
+        android:id="@+id/btnEliminar"
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/btn_style_azul"
+        android:onClick="OnClickEliminarRutina"
         android:text="@string/TxtEliminar"
         android:textColor="#ffffff"
         android:textSize="18sp"

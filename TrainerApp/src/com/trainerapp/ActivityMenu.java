@@ -99,5 +99,6 @@ public class ActivityMenu extends ActionBarActivity {
            }
     	 dbAdapter.close();
     }
+    
 
 }

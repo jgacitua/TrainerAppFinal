@@ -46,7 +46,7 @@
      
      <!--   *********Zonas Musculares**********          -->
      <string name="TxtZonasMusculares">Zonas Musculares</string>
-     <string name="TxtDescripcion">imagen del cuerpo humano</string>
+     <string name="TxtDescripcion">imagen del cuerpo \nhumano</string>
      <string name="TxtEspectorales">Pectorales</string>
      <string name="TxtEspalda">Espalda</string>
      <string name="TxtTricep">Triceps</string>

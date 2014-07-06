@@ -5,21 +5,34 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/txtNomEjer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:maxWidth="200dp"
+        android:text="@string/TxtTrabajoMuscular"
+        android:textAppearance="@style/EstiloNegrasText"
+        android:width="200dp" />
+
+    <TextView
         android:id="@+id/txtDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:maxWidth="200dp"
-        android:shadowDx="2"
-        android:text="Descripcion de ejercicio completamente descrito kaljlakjakljlakjlkajlkajlakjlkajlkajlakjlakjlakjalkjalkjalkkajsdlkjaklsjdklajsdkljalksdjlkajsdlkjaslkjdlkaskllllllllllllllllllllllllllllllllllljaskdjaksjdkjakldsjlkakskksssssssssssssssssssssdjkldsjlkjsadlkjalksdjlkajsdlkjalskjdlaksjdlkajsdkjaskdjlkasjdlkjaslkkjfdskj" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:lines="18"
+        android:maxWidth="260dp"
+        android:text="@string/TxtDescripcion"
+        android:textAppearance="@style/EstiloNegrasTextmin"
+        android:width="260dp" />
 
     <CheckBox
         android:id="@+id/chkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="95dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:text="@string/TxtSeleccionar"
         android:textStyle="bold" />
  

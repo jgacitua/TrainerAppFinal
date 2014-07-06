@@ -1,11 +1,10 @@
 package adaptadoresList;
 
 import java.util.ArrayList;
-
 import clases.dominio.DtoEjercicio;
-
 import com.trainerapp.R;
-
+import database.controladores.DataBaseAdapter;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +12,20 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+@SuppressLint("InflateParams")
 public class AdapterListDias extends BaseAdapter{
 	 
 	   private ArrayList<DtoEjercicio> listadoitemsMenu;
 	   private LayoutInflater lInflater;
+	   private Context context;
+	   private DataBaseAdapter db;
+	   private String dia;
 	 
 	   public AdapterListDias(Context context, ArrayList<DtoEjercicio> itemsMenu) {
 	      this.lInflater = LayoutInflater.from(context);
 	      this.listadoitemsMenu = itemsMenu;
+	      this.context = context;
+	      
 	   }
 	 
 	   @Override
@@ -34,13 +39,19 @@ public class AdapterListDias extends BaseAdapter{
 	 
 	   public String getItemNomEjercicio(int arg0) { return listadoitemsMenu.get(arg0).getNombre(); }
 	   public String getItemIdEjer(int arg0) { return listadoitemsMenu.get(arg0).getId(); }
-	   @Override
+	   public String getItemIdEjer(int arg0, String dia) { return listadoitemsMenu.get(arg0).getId(); }
+	   @SuppressLint("InflateParams")
+	@Override
 	   public View getView(int arg0, View arg1, ViewGroup arg2) {
 	      ContenedorView contenedor = null;
 	 
 	      if (arg1 == null){
-	         arg1 = lInflater.inflate(R.layout.list_item_menu, null);
-	 
+	         
+	         if(estadoColorEjercicio(getItemIdEjer(arg0), dia)){
+	        	 arg1 = lInflater.inflate(R.layout.list_item_menu_celeste, null);
+	         }else{
+	        	 arg1 = lInflater.inflate(R.layout.list_item_menu, null);
+	         }
 	         contenedor = new ContenedorView();
 	         contenedor.nombreVersion = (TextView) arg1.findViewById(R.id.titulo_zona);
 	         contenedor.tiempo = (TextView) arg1.findViewById(R.id.tiempoList);
@@ -59,5 +70,16 @@ public class AdapterListDias extends BaseAdapter{
 	   class ContenedorView{
 	      TextView nombreVersion;
 	      TextView tiempo;
+	   }
+	   private boolean estadoColorEjercicio(String id, String dia){
+		   db = new DataBaseAdapter(context);
+		   db.open();
+		   boolean var = db.existeEjercicioUsuario(id,dia);
+          db.close();
+          return var;
+	   }
+	   public void setDia(String dia){
+		   this.dia = dia;
+		   
 	   }
 	}

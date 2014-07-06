@@ -79,10 +79,10 @@ public class DataBaseAdapter {
 			return false;
 		}
 	}
-	public DtoRutina obtenerRutina(String id) {
+	public DtoRutina obtenerRutina() {
 	       try{
 	    	   DtoRutina dtoRutina = new DtoRutina();
-	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_RUT + " WHERE id_rut = '"+id+"'",null);;
+	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_RUT,null);;
 	    	   if(cur.moveToFirst())
 			   {
 	    		  dtoRutina.setAll(cur.getString(0), cur.getString(1), cur.getString(3), cur.getString(2));
@@ -130,9 +130,9 @@ public class DataBaseAdapter {
 	        return  dtoEjeUsu;
 	       }catch(Exception e){return null;}
 	}
-	public DtoEjercicio[] obtenerEjercicios(String id_zona) {
+	public DtoEjercicio[] obtenerEjercicios(String id_zona, String dificultad, String sexo) {
 	       try{
-	    	   Cursor cur= db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJERCICIO + " WHERE zona_muscular_id = '"+id_zona+"'",null);
+	    	   Cursor cur= db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJERCICIO + " WHERE zona_muscular_id = '"+id_zona+"' AND dificultad= '"+dificultad+"'"+" AND sexo= '"+sexo+"'",null);
 	    	   DtoEjercicio[] dtoEje = new DtoEjercicio[cur.getCount()];
 	    	   if(cur.moveToFirst())
 			   {
@@ -149,15 +149,28 @@ public class DataBaseAdapter {
 	        return  dtoEje;
 	       }catch(Exception e){return null;}
 	}
-	
+	public DtoEjercicioMuscular obtenerEjercicios(String id) {
+	       try{
+	    	   Cursor cur= db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJERCICIO + " WHERE id = '"+id+"'",null);
+	    	   DtoEjercicioMuscular dtoEje = new DtoEjercicioMuscular();
+	    	   if(cur.moveToFirst())
+			   {
+			    		   	dtoEje.setAll(cur.getString(0), cur.getString(1), cur.getString(2), cur.getString(3), cur.getString(5), cur.getString(4));
+					   
+			  }
+			cur.close();
+		
+	        return  dtoEje;
+	       }catch(Exception e){return null;}
+	}
 	
 //	public void actualizarEjercicioUsuario(String seleccion) {
 //        db.execSQL("UPDATE "+DataBaseHelper.TABLA_PED+" SET "+DataBaseHelper.SELECCION+" = '"+seleccion+"' " +
 //        		"WHERE "+DataBaseHelper.ID_PEDIDO+" = '"+id_tx+"'");
 //     }
-	public boolean borrarEjercicio(String id) {
+	public boolean borrarAllEjercicioUsuario() {
 	       try{
-	         db.execSQL("DELETE  FROM "+DataBaseHelper.TABLA_EJER_USUARIO + " WHERE ejercicio_id = '"+id+"'");
+	         db.execSQL("DELETE  FROM "+DataBaseHelper.TABLA_EJER_USUARIO);
 	        return true;
 	       }catch(Exception e){return false;}
 	}
@@ -202,6 +215,21 @@ public class DataBaseAdapter {
 	    		   Log.w("Existe DB","Si existe ejercicios");
 			  }else{
 				  Log.w("Existe DB","No existe ejercicios");
+			  }
+			cur.close();
+	        return  var;
+	       }catch(Exception e){return var;}
+	}
+	public boolean existeEjercicioUsuario(){
+		boolean var= false;
+		try{
+	    	   Cursor cur =  db.rawQuery("SELECT *  FROM "+DataBaseHelper.TABLA_EJER_USUARIO ,null);
+	    	   if(cur.moveToFirst())
+			   {
+	    		   var=true;
+	    		   Log.w("Existe DB","Si existe ejercicios_Usuario");
+			  }else{
+				  Log.w("Existe DB","No existe ejercicios_Usuario");
 			  }
 			cur.close();
 	        return  var;

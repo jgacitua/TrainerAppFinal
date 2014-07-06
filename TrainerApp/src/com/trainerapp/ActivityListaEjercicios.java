@@ -3,6 +3,7 @@ package com.trainerapp;
 import java.util.ArrayList;
 
 import clases.dominio.DtoEjercicio;
+import clases.dominio.DtoRutina;
 import clases.dominio.DtoZonaMuscular;
 import database.controladores.DataBaseAdapter;
 import adaptadoresList.AdapterListDias;
@@ -35,7 +36,7 @@ public class ActivityListaEjercicios extends Activity{
         dia = b.getString("DIA");
         zona= b.getString("ZONA");
         titilo_zona.setText(zona);
-        agregarListDias(zona);
+        
         listDias.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                 int position, long id) {
@@ -45,13 +46,29 @@ public class ActivityListaEjercicios extends Activity{
 
             });
     }
+	 protected void onResume()
+	    {
+	       super.onResume();
+	       try{
+	       listDias = (ListView) findViewById(R.id.listEje);
+	       agregarListDias(zona);
+	       adaptador.setDia(dia);
+	       }catch(Exception e){
+				
+			}
+	    }
 	public void agregarListDias(String zona){
+		ejerciciosDiaArray= new ArrayList<DtoEjercicio>();
+		DtoRutina dtoRutina = new DtoRutina();
 		db.open();
+		dtoRutina = db.obtenerRutina();
 		DtoZonaMuscular dtoZonaM = db.obtenerZona(zona);
-		DtoEjercicio[] dtoEjer = db.obtenerEjercicios(dtoZonaM.getId());
-		for(int i=0; i<dtoEjer.length;i++){
-			ejerciciosDiaArray.add( new DtoEjercicio(dtoEjer[i].getId(),dtoEjer[i].getNombre(), dtoEjer[i].getTiempo()));
-		}
+		DtoEjercicio[] dtoEjer = db.obtenerEjercicios(dtoZonaM.getId(),dtoRutina.getNivel(),dtoRutina.getSexo());
+		
+			for(int i=0; i<dtoEjer.length;i++){
+				ejerciciosDiaArray.add( new DtoEjercicio(dtoEjer[i].getId(),dtoEjer[i].getNombre(), dtoEjer[i].getTiempo()));
+			}
+			
 		adaptador = new AdapterListDias(ActivityListaEjercicios.this, ejerciciosDiaArray);
         listDias.setAdapter(adaptador);
         db.close();

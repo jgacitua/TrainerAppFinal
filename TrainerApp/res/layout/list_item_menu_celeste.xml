@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:background="#503366FF">
+
+    <TextView
+        android:id="@+id/titulo_zona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:lines="2"
+        android:maxLines="2"
+        android:minLines="2"
+        android:text="@string/TxtTrainerApp"
+        android:textAppearance="@style/EstiloNegrasTextExtramin"
+        android:width="220dp" />
+ 
+    <TextView
+        android:id="@+id/tiempoList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:lines="1"
+        android:maxLines="1"
+        android:paddingTop="15dip"
+        android:text="@string/TxtHorasEjemplo2"
+        android:textColor="#000000"
+        android:width="80dp" />
+
+</LinearLayout>
